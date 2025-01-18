@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bml2jyasedhvy"]
+[gd_scene load_steps=3 format=3 uid="uid://bml2jyasedhvy"]
+
+[ext_resource type="PackedScene" uid="uid://b6evk3x0i2utw" path="res://scenes/tile_map.tscn" id="1_rrgd5"]
+[ext_resource type="PackedScene" uid="uid://bmdmyntr56ksy" path="res://scenes/player.tscn" id="2_fhnwy"]
 
 [node name="Game" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_rrgd5")]
+
+[node name="Player" parent="." instance=ExtResource("2_fhnwy")]
