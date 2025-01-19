@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnems6hnmb56"
-path="res://.godot/imported/grass.png-69449342c3b2aaca9c327169ac9b8d61.ctex"
+uid="uid://dna17csokrdpa"
+path="res://.godot/imported/monkey_tree.png-147f6ca6dd91690ed5a4efe6f10700da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/grass.png"
-dest_files=["res://.godot/imported/grass.png-69449342c3b2aaca9c327169ac9b8d61.ctex"]
+source_file="res://assets/sprites/monkey_tree.png"
+dest_files=["res://.godot/imported/monkey_tree.png-147f6ca6dd91690ed5a4efe6f10700da.ctex"]
 
 [params]
 

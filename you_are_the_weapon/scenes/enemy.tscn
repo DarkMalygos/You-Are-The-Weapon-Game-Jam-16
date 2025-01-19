@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch1nbrs8bcx6v"]
+[gd_scene load_steps=6 format=3 uid="uid://ch1nbrs8bcx6v"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4t3vt"]
 [ext_resource type="Texture2D" uid="uid://dy4bcwk4xaxq1" path="res://assets/sprites/tilemap_packed.png" id="2_epghi"]
@@ -6,17 +6,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
 size = Vector2(16, 16)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1ltdx"]
+blend_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_giulv"]
+polygon = PackedVector2Array(5, -4, 6, -4, 6, 2, 7, 2, 7, 3, 8, 3, 8, 7, 7, 7, 7, 8, -7, 8, -7, 7, -8, 7, -8, 3, -7, 3, -7, 2, -6, 2, -6, -4, -5, -4, -5, -5, -4, -5, -4, -6, -2, -6, -2, -7, 2, -7, 2, -6, 4, -6, 4, -5, 5, -5)
+
 [node name="Enemy" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_4t3vt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78tmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_epghi")
 region_enabled = true
 region_rect = Rect2(0, 128, 16, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_78tmi")
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_1ltdx")
+occluder = SubResource("OccluderPolygon2D_giulv")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
