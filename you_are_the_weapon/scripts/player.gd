@@ -8,12 +8,9 @@ class_name Player
 @onready var zoom_velocity: Vector2 = Vector2(zoom_speed, zoom_speed)
 @onready var ground_layer: TileMapLayer = get_node("../TileMap/GroundLayer")
 @onready var enemy: Enemy = get_node("../Enemy")
+@onready var cell_size := ground_layer.tile_set.tile_size.x
 
-var cell_size: int
 var inputs: Dictionary = {"movement_right": Vector2.RIGHT, "movement_left": Vector2.LEFT, "movement_up": Vector2.UP, "movement_down": Vector2.DOWN}
-
-func _ready() -> void:
-	cell_size = ground_layer.tile_set.tile_size.x
 
 func _unhandled_input(event: InputEvent) -> void:
 	for direction: String in inputs.keys():

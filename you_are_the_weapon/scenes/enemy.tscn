@@ -13,10 +13,12 @@ script = ExtResource("1_4t3vt")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_epghi")
 region_enabled = true
-region_rect = Rect2(112, 128, 16, 16)
+region_rect = Rect2(0, 128, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_78tmi")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
+collision_mask = 3
+collide_with_areas = true
