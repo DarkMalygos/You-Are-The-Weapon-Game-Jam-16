@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch1nbrs8bcx6v"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_4t3vt"]
+[ext_resource type="Texture2D" uid="uid://dy4bcwk4xaxq1" path="res://assets/sprites/tilemap_packed.png" id="2_epghi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
+size = Vector2(16, 16)
+
+[node name="Enemy" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_4t3vt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_epghi")
+region_enabled = true
+region_rect = Rect2(112, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78tmi")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
