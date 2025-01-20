@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://d372sammkk0fv"]
+
+[ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_1i3jk"]
+[ext_resource type="PackedScene" uid="uid://cx121esayws1n" path="res://scenes/entities/entity.tscn" id="1_r6h2l"]
+[ext_resource type="Texture2D" uid="uid://d3t7tshfvlv5h" path="res://lights/light2.png" id="3_uo6wa"]
+
+[node name="Player" instance=ExtResource("1_r6h2l")]
+script = ExtResource("1_1i3jk")
+zoom_speed = 0.1
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(112, 128, 16, 16)
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+target_position = Vector2(0, 0)
+collision_mask = 3
+collide_with_areas = true
+
+[node name="lights" type="Node2D" parent="." index="3"]
+position = Vector2(-3.63798e-12, -9.53674e-07)
+scale = Vector2(8, 8)
+
+[node name="light" type="PointLight2D" parent="lights" index="0"]
+color = Color(1, 1, 1, 0.6)
+energy = 0.7
+texture = ExtResource("3_uo6wa")
+
+[node name="shadow" type="PointLight2D" parent="lights" index="1"]
+self_modulate = Color(1, 1, 1, 0.6)
+energy = 0.5
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("3_uo6wa")
+texture_scale = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
