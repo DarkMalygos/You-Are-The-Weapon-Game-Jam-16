@@ -42,7 +42,7 @@ texture = ExtResource("3_pmk3s")
 texture_scale = 0.5
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
-position = Vector2(8, 80)
+position = Vector2(8, 64)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
