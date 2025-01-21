@@ -27,3 +27,4 @@ func move(direction: String):
 	ray_cast.force_raycast_update()
 	if !ray_cast.is_colliding():
 		position += inputs[direction] * cell_size
+		$SlideSound.play()
