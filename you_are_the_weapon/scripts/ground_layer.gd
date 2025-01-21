@@ -37,4 +37,6 @@ func is_cell_empty(tile_position: Vector2) -> bool:
 func move_enemies():
 	for entity in entities:
 		if entity is Enemy:
-			entity.move()
+			if !entity.move():
+				entities.erase(entity)
+				entities.append(entity)

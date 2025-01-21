@@ -1,26 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bml2jyasedhvy"]
+[gd_scene load_steps=5 format=3 uid="uid://bml2jyasedhvy"]
 
-[ext_resource type="PackedScene" uid="uid://b6evk3x0i2utw" path="res://scenes/tile_map.tscn" id="1_rrgd5"]
+[ext_resource type="PackedScene" uid="uid://b6evk3x0i2utw" path="res://scenes/tiles/tile_map.tscn" id="1_rrgd5"]
 [ext_resource type="PackedScene" uid="uid://d372sammkk0fv" path="res://scenes/entities/player.tscn" id="2_fhnwy"]
 [ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemy.tscn" id="3_mmd4q"]
-[ext_resource type="Texture2D" uid="uid://dna17csokrdpa" path="res://assets/sprites/monkey_tree.png" id="4_ir0la"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8prl8"]
-blend_mode = 1
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_585hb"]
-polygon = PackedVector2Array(-3, -20, -6, -20, -6, -19, -8, -19, -8, -18, -9, -18, -9, -17, -10, -17, -10, -16, -15, -16, -15, -15, -17, -15, -17, -14, -18, -14, -18, -13, -19, -13, -19, -11, -20, -11, -20, -8, -19, -8, -19, -7, -20, -7, -20, -4, -19, -4, -19, -2, -18, -2, -18, -1, -17, -1, -17, 0, -16, 0, -16, 1, -14, 1, -14, 2, -13, 2, -13, 1, -12, 1, -12, 3, -11, 3, -11, 4, -10, 4, -10, 5, -8, 5, -8, 6, -6, 6, -6, 7, -4, 7, -4, 8, -3, 8, -3, 13, -4, 13, -4, 16, -5, 16, -5, 19, -1, 19, -1, 20, 2, 20, 2, 19, 7, 19, 7, 17, 6, 17, 6, 15, 5, 15, 5, 12, 4, 12, 4, 8, 5, 8, 5, 7, 6, 7, 6, 6, 7, 6, 7, 5, 8, 5, 8, 4, 9, 4, 9, 2, 10, 2, 10, 1, 11, 1, 11, 2, 12, 2, 12, 1, 13, 1, 13, 2, 14, 2, 14, 1, 16, 1, 16, 0, 17, 0, 17, -1, 18, -1, 18, -2, 19, -2, 19, -4, 20, -4, 20, -7, 19, -7, 19, -8, 20, -8, 20, -11, 19, -11, 19, -13, 18, -13, 18, -14, 17, -14, 17, -15, 15, -15, 15, -16, 11, -16, 11, -18, 10, -18, 10, -19, 7, -19, 7, -20, 1, -20, 1, -21, -3, -21)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j4nlr"]
-radius = 4.0
-height = 42.0
+[ext_resource type="Script" path="res://scripts/music_player.gd" id="5_rhq4o"]
 
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_rrgd5")]
 
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
-position = Vector2(-8, 8)
+position = Vector2(-8, 24)
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
 position = Vector2(8, 64)
@@ -28,20 +18,11 @@ position = Vector2(8, 64)
 [node name="Enemy2" parent="." instance=ExtResource("3_mmd4q")]
 position = Vector2(40, 48)
 
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+volume_db = -2.0
+max_distance = 176.0
+attenuation = 1.75277e-05
+script = ExtResource("5_rhq4o")
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
-material = SubResource("CanvasItemMaterial_8prl8")
-position = Vector2(8, -24)
-occluder = SubResource("OccluderPolygon2D_585hb")
-
-[node name="MonkeyTree" type="Sprite2D" parent="Area2D"]
-position = Vector2(8, -24)
-texture = ExtResource("4_ir0la")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(8, -24)
-shape = SubResource("CapsuleShape2D_j4nlr")
