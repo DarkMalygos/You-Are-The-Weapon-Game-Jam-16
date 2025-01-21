@@ -7,6 +7,9 @@
 
 [node name="Game" type="Node2D"]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
 [node name="TileMap" parent="." instance=ExtResource("1_rrgd5")]
 
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
@@ -14,15 +17,10 @@ position = Vector2(-8, 24)
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
 position = Vector2(8, 64)
-
-[node name="Enemy2" parent="." instance=ExtResource("3_mmd4q")]
-position = Vector2(40, 48)
+max_cooldown = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0
 max_distance = 176.0
 attenuation = 1.75277e-05
 script = ExtResource("5_rhq4o")
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)

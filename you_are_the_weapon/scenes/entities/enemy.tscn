@@ -5,3 +5,4 @@
 
 [node name="Enemy" instance=ExtResource("1_2gme0")]
 script = ExtResource("1_4t3vt")
+max_cooldown = 1
