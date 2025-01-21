@@ -17,3 +17,11 @@ region_rect = Rect2(0, 128, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_78tmi")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -40.0
+offset_right = 16.0
+offset_bottom = -13.0
+max_value = 10.0
+value = 10.0
