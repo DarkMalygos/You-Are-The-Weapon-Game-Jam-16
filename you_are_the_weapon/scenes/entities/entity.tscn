@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx121esayws1n"]
+[gd_scene load_steps=9 format=3 uid="uid://cx121esayws1n"]
 
 [ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_0hr47"]
 [ext_resource type="Texture2D" uid="uid://bxmvmcem71f8n" path="res://assets/sprites/entities/enemies/enemy1.png" id="2_s5gbo"]
 [ext_resource type="Texture2D" uid="uid://b26ma1gkpaepn" path="res://assets/sprites/entities/enemies/enemy2.png" id="3_micpi"]
 [ext_resource type="Texture2D" uid="uid://sgsmec28ran1" path="res://assets/sprites/entities/enemies/enemy3.png" id="4_ulp26"]
+[ext_resource type="AudioStream" uid="uid://cgohgfto1p5rf" path="res://assets/sounds/slide.wav" id="5_ijhx8"]
+[ext_resource type="Script" path="res://scenes/sounds_player.gd" id="6_wfyxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
+size = Vector2(16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnb3w"]
 animations = [{
@@ -30,22 +35,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
-size = Vector2(16, 16)
-
 [node name="Entity" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_0hr47")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78tmi")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_fnb3w")
 animation = &"attack"
 frame = 1
 frame_progress = 0.264352
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_78tmi")
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ijhx8")
+volume_db = -10.0
+max_distance = 176.0
+attenuation = 1e-05
+script = ExtResource("6_wfyxq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -58,9 +66,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/UI"]
-offset_left = -16.0
-offset_top = -40.0
-offset_right = 16.0
-offset_bottom = -13.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 32.0
+grow_vertical = 0
 max_value = 10.0
 value = 10.0

@@ -44,4 +44,5 @@ func move(id_path: Array[Vector2i]) -> bool:
 
 func attack() -> bool:
 	player.current_health -= 2
+	$SoundPlayer.play()
 	return true

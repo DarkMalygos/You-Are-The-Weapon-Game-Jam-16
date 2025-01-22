@@ -6,3 +6,12 @@
 [node name="Enemy" instance=ExtResource("1_2gme0")]
 script = ExtResource("1_4t3vt")
 max_cooldown = 1
+
+[node name="HealthBar" parent="CanvasLayer/UI" index="0"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 27.0
+grow_vertical = 1
