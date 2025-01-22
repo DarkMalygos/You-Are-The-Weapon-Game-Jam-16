@@ -13,7 +13,7 @@ color = Color(0, 0, 0, 1)
 [node name="TileMap" parent="." instance=ExtResource("1_rrgd5")]
 
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
-position = Vector2(-8, 24)
+position = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
 position = Vector2(8, 64)

@@ -7,9 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c50kvju1cubo3" path="res://assets/sprites/health_bars/outer_health_bar.png" id="5_3o8q5"]
 [ext_resource type="Texture2D" uid="uid://b2415uirjw0ha" path="res://assets/sprites/health_bars/progress_bar.png" id="6_gnjkh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
-size = Vector2(16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnb3w"]
 animations = [{
 "frames": [{
@@ -35,41 +32,37 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
+size = Vector2(16, 16)
+
 [node name="Entity" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_0hr47")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_78tmi")
-
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -47.0
-offset_right = 35.0
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-nine_patch_stretch = true
-stretch_margin_left = 4
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("5_3o8q5")
-texture_progress = ExtResource("6_gnjkh")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_fnb3w")
 animation = &"attack"
 frame = 1
 frame_progress = 0.264352
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_78tmi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/UI"]
+offset_left = -16.0
+offset_top = -40.0
+offset_right = 16.0
+offset_bottom = -13.0
+max_value = 10.0
+value = 10.0

@@ -1,13 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://d372sammkk0fv"]
+[gd_scene load_steps=8 format=3 uid="uid://d372sammkk0fv"]
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_1i3jk"]
 [ext_resource type="PackedScene" uid="uid://cx121esayws1n" path="res://scenes/entities/entity.tscn" id="1_r6h2l"]
 [ext_resource type="Texture2D" uid="uid://d3t7tshfvlv5h" path="res://lights/light2.png" id="3_uo6wa"]
+[ext_resource type="Texture2D" uid="uid://ckkwg6aoibu53" path="res://assets/sprites/weapons/sword.png" id="3_w425v"]
 [ext_resource type="AudioStream" uid="uid://cgohgfto1p5rf" path="res://assets/sounds/slide.wav" id="4_6k45j"]
+[ext_resource type="PackedScene" uid="uid://3jh4c555swv0" path="res://scenes/UI/inventory.tscn" id="6_kr3v7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuose"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w425v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" instance=ExtResource("1_r6h2l")]
 script = ExtResource("1_1i3jk")
 zoom_speed = 0.1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_nuose")
+animation = &"default"
+frame = 0
+frame_progress = 0.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="2"]
 target_position = Vector2(0, 0)
@@ -19,6 +38,7 @@ position = Vector2(-3.63798e-12, -9.53674e-07)
 scale = Vector2(8, 8)
 
 [node name="light" type="PointLight2D" parent="lights" index="0"]
+position = Vector2(4.54748e-13, 1)
 color = Color(1, 1, 1, 0.6)
 energy = 0.7
 texture = ExtResource("3_uo6wa")
@@ -41,3 +61,14 @@ stream = ExtResource("4_6k45j")
 volume_db = -10.0
 max_distance = 176.0
 attenuation = 1e-05
+
+[node name="HealthBar" parent="CanvasLayer/UI" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 661.0
+offset_right = 128.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 40
+
+[node name="Inventory" parent="CanvasLayer/UI" index="1" instance=ExtResource("6_kr3v7")]
+layout_mode = 1
