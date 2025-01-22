@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci5o1r8jq6yqr"]
+
+[ext_resource type="Script" path="res://scripts/weapons/weapon.gd" id="1_p77u0"]
+[ext_resource type="Texture2D" uid="uid://ckkwg6aoibu53" path="res://assets/sprites/weapons/sword.png" id="2_22ji6"]
+
+[node name="Weapon" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 100.0
+offset_bottom = 100.0
+script = ExtResource("1_p77u0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 50)
+scale = Vector2(1.5625, 1.5625)
+texture = ExtResource("2_22ji6")

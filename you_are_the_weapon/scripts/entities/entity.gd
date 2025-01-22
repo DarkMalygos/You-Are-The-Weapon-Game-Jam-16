@@ -9,8 +9,15 @@ class_name Entity
 		return current_health
 	set(value):
 		current_health = max(0, min(max_health, value))
-		$HealthBar.value = current_health
+		
+		if current_health == 0:
+			destroy()
+		
+		$CanvasLayer/UI/HealthBar.value = current_health
 
 func _ready() -> void:
 	ground_layer.entities.append(self)
-	$HealthBar.max_value = max_health
+	$CanvasLayer/UI/HealthBar.max_value = max_health
+	
+func destroy():
+	push_warning("not implemented")
