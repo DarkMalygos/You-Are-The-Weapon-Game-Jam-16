@@ -10,6 +10,7 @@ class_name Entity
 	set(value):
 		current_health = max(0, min(max_health, value))
 		$HealthBar.value = current_health
+		print($HealthBar.value)
 
 func _ready() -> void:
 	ground_layer.entities.append(self)
