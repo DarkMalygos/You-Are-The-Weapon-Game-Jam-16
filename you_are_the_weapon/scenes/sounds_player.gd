@@ -1,4 +1,3 @@
 extends AudioStreamPlayer2D
-
-func _process(delta: float) -> void:
-	pass
+	
+@onready var sword_enemy_sound = preload("res://assets/sounds/sword_enemy.wav")

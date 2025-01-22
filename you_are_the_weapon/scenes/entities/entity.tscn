@@ -48,7 +48,7 @@ animation = &"attack"
 frame = 1
 frame_progress = 0.264352
 
-[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="SoundsPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_ijhx8")
 volume_db = -10.0
 max_distance = 176.0

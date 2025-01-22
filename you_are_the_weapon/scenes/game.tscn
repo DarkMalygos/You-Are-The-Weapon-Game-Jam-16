@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6evk3x0i2utw" path="res://scenes/tiles/tile_map.tscn" id="1_rrgd5"]
 [ext_resource type="PackedScene" uid="uid://d372sammkk0fv" path="res://scenes/entities/player.tscn" id="2_fhnwy"]
 [ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemy.tscn" id="3_mmd4q"]
-[ext_resource type="AudioStream" uid="uid://biounnn03qrqs" path="res://assets/sounds/sword_enemy.wav" id="4_ilbym"]
+[ext_resource type="AudioStream" uid="uid://ba17gpalioir6" path="res://assets/music/music.wav" id="4_gi1s3"]
 [ext_resource type="Script" path="res://scripts/music_player.gd" id="5_rhq4o"]
 
 [node name="Game" type="Node2D"]
@@ -18,11 +18,9 @@ position = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
 position = Vector2(8, 64)
-max_cooldown = null
-max_health = null
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_ilbym")
+stream = ExtResource("4_gi1s3")
 volume_db = -2.0
 max_distance = 176.0
 attenuation = 1.75277e-05
