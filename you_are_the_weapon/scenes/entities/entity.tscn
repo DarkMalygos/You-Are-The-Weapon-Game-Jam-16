@@ -40,6 +40,7 @@ collision_layer = 2
 script = ExtResource("1_0hr47")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_fnb3w")
 animation = &"attack"
@@ -59,10 +60,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/UI"]
-offset_left = -16.0
-offset_top = -40.0
-offset_right = 16.0
-offset_bottom = -13.0
-max_value = 10.0
-value = 10.0
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/UI"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = -205.0
+offset_right = 600.0
+offset_bottom = 265.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("5_3o8q5")
+texture_progress = ExtResource("6_gnjkh")

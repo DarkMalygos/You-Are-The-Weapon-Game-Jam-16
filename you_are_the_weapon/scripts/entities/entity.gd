@@ -13,11 +13,11 @@ class_name Entity
 		if current_health == 0:
 			destroy()
 		
-		$CanvasLayer/UI/HealthBar.value = current_health
+		$CanvasLayer/UI/HealthBar.value = current_health * 100 / max_health
+		print($CanvasLayer/UI/HealthBar.value)
 
 func _ready() -> void:
 	ground_layer.entities.append(self)
-	$CanvasLayer/UI/HealthBar.max_value = max_health
 	
 func destroy():
 	push_warning("not implemented")

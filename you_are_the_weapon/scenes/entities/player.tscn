@@ -23,17 +23,19 @@ script = ExtResource("1_1i3jk")
 zoom_speed = 0.1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -2.98023e-08)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_nuose")
 animation = &"default"
 frame = 0
 frame_progress = 0.0
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="1"]
 target_position = Vector2(0, 0)
 collision_mask = 3
 collide_with_areas = true
 
-[node name="lights" type="Node2D" parent="." index="3"]
+[node name="lights" type="Node2D" parent="." index="2"]
 position = Vector2(-3.63798e-12, -9.53674e-07)
 scale = Vector2(8, 8)
 
@@ -52,23 +54,15 @@ shadow_filter_smooth = 3.0
 texture = ExtResource("3_uo6wa")
 texture_scale = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="SlideSound" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="SlideSound" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource("4_6k45j")
 volume_db = -10.0
 max_distance = 176.0
 attenuation = 1e-05
-
-[node name="HealthBar" parent="CanvasLayer/UI" index="0"]
-layout_mode = 0
-offset_left = 0.0
-offset_top = 661.0
-offset_right = 128.0
-offset_bottom = 720.0
-theme_override_font_sizes/font_size = 40
 
 [node name="Inventory" parent="CanvasLayer/UI" index="1" instance=ExtResource("6_kr3v7")]
 layout_mode = 1
