@@ -64,5 +64,20 @@ volume_db = -10.0
 max_distance = 176.0
 attenuation = 1e-05
 
+[node name="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_nuose")
+animation = &"default"
+frame = 0
+frame_progress = 0.0
+
+[node name="HealthBar" parent="CanvasLayer/UI" index="0"]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 27.0
+grow_vertical = 1
+
 [node name="Inventory" parent="CanvasLayer/UI" index="1" instance=ExtResource("6_kr3v7")]
 layout_mode = 1
