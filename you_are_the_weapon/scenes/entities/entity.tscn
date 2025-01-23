@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cx121esayws1n"]
+[gd_scene load_steps=10 format=3 uid="uid://cx121esayws1n"]
 
 [ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_0hr47"]
 [ext_resource type="Texture2D" uid="uid://bxmvmcem71f8n" path="res://assets/sprites/entities/enemies/enemy1.png" id="2_s5gbo"]
 [ext_resource type="Texture2D" uid="uid://b26ma1gkpaepn" path="res://assets/sprites/entities/enemies/enemy2.png" id="3_micpi"]
 [ext_resource type="Texture2D" uid="uid://sgsmec28ran1" path="res://assets/sprites/entities/enemies/enemy3.png" id="4_ulp26"]
 [ext_resource type="Texture2D" uid="uid://c50kvju1cubo3" path="res://assets/sprites/health_bars/outer_health_bar.png" id="5_3o8q5"]
-[ext_resource type="AudioStream" uid="uid://cgohgfto1p5rf" path="res://assets/sounds/slide.wav" id="5_ijhx8"]
 [ext_resource type="Texture2D" uid="uid://b2415uirjw0ha" path="res://assets/sprites/health_bars/progress_bar.png" id="6_gnjkh"]
 [ext_resource type="Script" path="res://scenes/sounds_player.gd" id="6_wfyxq"]
 
@@ -53,7 +52,6 @@ frame = 1
 frame_progress = 0.264352
 
 [node name="SoundsPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_ijhx8")
 volume_db = -10.0
 max_distance = 176.0
 attenuation = 1e-05

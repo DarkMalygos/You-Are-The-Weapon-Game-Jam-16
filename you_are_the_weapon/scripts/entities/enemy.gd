@@ -5,9 +5,20 @@ class_name Enemy
 
 @onready var player: Player = get_node("../Player")
 
+# For later, It's not implemented yet
+@onready var left_bound = Vector2i(-4, 4)
+@onready var right_bound = Vector2i(4, 4)
+
 var current_cooldown: int = 0
-	
-func activate() -> bool:	
+
+enum States {
+	WANDER,
+	COMBAT
+}
+
+var current_state: States = States.WANDER
+
+func activate() -> bool:
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 		
@@ -36,8 +47,9 @@ func activate() -> bool:
 	return false
 
 func move(id_path: Array[Vector2i]) -> bool:
-	print(ground_layer.local_to_map(global_position), ground_layer.local_to_map(player.global_position))
-	if ground_layer.is_cell_empty(ground_layer.map_to_local(id_path.front())):
+	if id_path.size() < 4:
+		current_state = States.COMBAT
+	if current_state == States.COMBAT && ground_layer.is_cell_empty(ground_layer.map_to_local(id_path.front())):
 		global_position = ground_layer.map_to_local(id_path.front())
 		return true
 		

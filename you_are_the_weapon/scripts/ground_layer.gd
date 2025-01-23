@@ -23,7 +23,6 @@ func initialize_grid():
 				)
 				
 			var tile_data = get_cell_tile_data(tile_position)
-			
 			if !tile_data || tile_data.get_collision_polygons_count(0) > 0:
 				astar_grid.set_point_solid(tile_position)
 
