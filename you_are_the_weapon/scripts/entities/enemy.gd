@@ -36,7 +36,6 @@ func activate() -> bool:
 	return false
 
 func move(id_path: Array[Vector2i]) -> bool:
-	print(ground_layer.local_to_map(global_position), ground_layer.local_to_map(player.global_position))
 	if ground_layer.is_cell_empty(ground_layer.map_to_local(id_path.front())):
 		global_position = ground_layer.map_to_local(id_path.front())
 		return true
