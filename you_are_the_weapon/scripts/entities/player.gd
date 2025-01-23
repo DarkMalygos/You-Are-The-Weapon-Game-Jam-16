@@ -1,6 +1,8 @@
 extends Entity
 class_name Player
 
+enum state {MOVEMENT, WEAPON_SELECTION}
+
 @export var zoom_speed: float = .1
 
 @onready var ray_cast: RayCast2D = $RayCast2D
@@ -12,16 +14,27 @@ class_name Player
 var direction_map: Dictionary = {"movement_right": Vector2.RIGHT, "movement_left": Vector2.LEFT, "movement_up": Vector2.UP, "movement_down": Vector2.DOWN}
 var weapon_map: Dictionary = {"weapon_one": 0, "weapon_two": 1, "weapon_three": 2, "weapon_four": 3}
 var selected_weapon: Weapon
+var previous_state: state
+var current_state: state = state.MOVEMENT:
+	get:
+		return current_state
+	set(value):
+		previous_state = current_state
+		current_state = value
 
 func _unhandled_input(event: InputEvent) -> void:
-	for direction: String in direction_map.keys():
-		if event.is_action_pressed(direction):
-			move(direction)
-			ground_layer.move_enemies()
-			
 	for weapon: String in weapon_map.keys():
 		if event.is_action_pressed(weapon):
-			try_select(weapon)
+			if try_select(weapon):
+				current_state = state.WEAPON_SELECTION
+			else:
+				current_state = previous_state
+	
+	if current_state == state.MOVEMENT:
+		for direction: String in direction_map.keys():
+			if event.is_action_pressed(direction):
+				move(direction)
+				ground_layer.move_enemies()
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -36,26 +49,21 @@ func move(direction: String):
 		position += direction_map[direction] * cell_size
 		$SoundsPlayer.play()
 
-func try_select(new_weapon_key: String):
+func try_select(new_weapon_key: String) -> bool:
 	if inventory_container.get_child_count() < weapon_map[new_weapon_key] + 1:
-		return
-	
-	var new_weapon: Weapon
+		return false
 	
 	for node in inventory_container.get_children():
 		if node is Weapon:
 			node.deselect()
 
-	new_weapon = inventory_container.get_child(weapon_map[new_weapon_key])
+	var new_weapon: Weapon = inventory_container.get_child(weapon_map[new_weapon_key])
 
-	if new_weapon != selected_weapon:
-		selected_weapon = new_weapon
-		new_weapon.select()
-		$SoundsPlayer.stream = selected_weapon.dagger
-		$SoundsPlayer.play()
-		return
-
-	selected_weapon = null
-	new_weapon.deselect()
+	if new_weapon == selected_weapon:
+		selected_weapon = null
+		new_weapon.deselect()
+		return false
 	
-	
+	selected_weapon = new_weapon
+	new_weapon.select(ground_layer.local_to_map(position))
+	return true

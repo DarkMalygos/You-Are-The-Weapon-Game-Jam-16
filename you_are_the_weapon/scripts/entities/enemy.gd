@@ -4,6 +4,7 @@ class_name Enemy
 @export var max_cooldown: int = 1
 
 @onready var player: Player = get_node("../Player")
+@onready var sword_enemy_sound = preload("res://assets/sounds/sword_enemy.wav")
 
 # For later, It's not implemented yet
 @onready var left_bound = Vector2i(-4, 4)
@@ -57,6 +58,6 @@ func move(id_path: Array[Vector2i]) -> bool:
 
 func attack() -> bool:
 	player.current_health -= 2
-	$SoundsPlayer.stream = $SoundsPlayer.sword_enemy_sound
+	$SoundsPlayer.stream = sword_enemy_sound
 	$SoundsPlayer.play()
 	return true

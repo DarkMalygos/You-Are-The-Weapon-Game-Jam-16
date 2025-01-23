@@ -32,6 +32,18 @@ func is_cell_empty(tile_position: Vector2) -> bool:
 			return false
 			
 	return true
+	
+func get_cells_in_range(position: Vector2i, weapon_range: int) -> Array[Vector2i]:
+	var cells_in_range: Array[Vector2i] = []
+	var x_range: int
+	
+	for y in range(-weapon_range, weapon_range + 1):
+		x_range = weapon_range - abs(y)
+		
+		for x in range(-x_range, x_range + 1):
+			cells_in_range.append(Vector2i(position.x + x, position.y + y))
+			
+	return cells_in_range
 
 func move_enemies():
 	for entity in entities:

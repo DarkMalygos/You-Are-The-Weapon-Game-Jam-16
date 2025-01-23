@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3jh4c555swv0"]
 
-[ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_2ri6q"]
+[ext_resource type="PackedScene" uid="uid://ddc15bytq3xkk" path="res://scenes/weapons/sword.tscn" id="1_jsq3h"]
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -26,5 +26,5 @@ offset_right = 400.0
 offset_bottom = 100.0
 theme_override_constants/separation = 0
 
-[node name="Weapon" parent="HBoxContainer" instance=ExtResource("1_2ri6q")]
+[node name="Sword" parent="HBoxContainer" instance=ExtResource("1_jsq3h")]
 layout_mode = 2

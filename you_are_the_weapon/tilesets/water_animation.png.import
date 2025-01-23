@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pwht0l1uan1w"
-path="res://.godot/imported/waterfall_animation.png-1730336260da081f1bf0e6a1a1adc5d4.ctex"
+uid="uid://bbgrdnbpvqpow"
+path="res://.godot/imported/water_animation.png-3c6b1c0840eb358d60d0fcf349196f15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/waterfall_animation.png"
-dest_files=["res://.godot/imported/waterfall_animation.png-1730336260da081f1bf0e6a1a1adc5d4.ctex"]
+source_file="res://tilesets/water_animation.png"
+dest_files=["res://.godot/imported/water_animation.png-3c6b1c0840eb358d60d0fcf349196f15.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://b6evk3x0i2utw"]
 
 [ext_resource type="Texture2D" uid="uid://dy4bcwk4xaxq1" path="res://assets/sprites/tilemap_packed.png" id="1_mu6hw"]
-[ext_resource type="Texture2D" uid="uid://cnems6hnmb56" path="res://tileset/grass.png" id="2_2kvdx"]
+[ext_resource type="Texture2D" uid="uid://cnems6hnmb56" path="res://tilesets/grass.png" id="2_2kvdx"]
 [ext_resource type="Script" path="res://scripts/ground_layer.gd" id="5_8enkd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yuhgo"]
