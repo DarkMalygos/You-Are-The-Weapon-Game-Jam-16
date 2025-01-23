@@ -51,7 +51,11 @@ func try_select(new_weapon_key: String):
 	if new_weapon != selected_weapon:
 		selected_weapon = new_weapon
 		new_weapon.select()
+		$SoundsPlayer.stream = selected_weapon.dagger
+		$SoundsPlayer.play()
 		return
 
 	selected_weapon = null
 	new_weapon.deselect()
+	
+	
