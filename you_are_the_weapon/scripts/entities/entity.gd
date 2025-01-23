@@ -14,7 +14,6 @@ class_name Entity
 			destroy()
 		
 		$CanvasLayer/UI/HealthBar.value = current_health * 100 / max_health
-		print($CanvasLayer/UI/HealthBar.value)
 
 func _ready() -> void:
 	ground_layer.entities.append(self)
