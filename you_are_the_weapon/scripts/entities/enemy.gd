@@ -3,11 +3,25 @@ class_name Enemy
 
 @export var max_cooldown: int = 1
 
+# For later, It's not implemented yet
+@onready var left_bound = Vector2i(-4, 4)
+@onready var right_bound = Vector2i(4, 4)
 @onready var player: Player = get_node("../Player")
+@onready var sounds: Dictionary = {
+	"movement": preload("res://assets/sounds/slide.wav"),
+	"attack": preload("res://assets/sounds/sword_enemy.wav")
+}
 
 var current_cooldown: int = 0
-	
-func activate() -> bool:	
+
+enum States {
+	WANDER,
+	COMBAT
+}
+
+var current_state: States = States.WANDER
+
+func activate() -> bool:
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 		
@@ -36,14 +50,16 @@ func activate() -> bool:
 	return false
 
 func move(id_path: Array[Vector2i]) -> bool:
-	if ground_layer.is_cell_empty(ground_layer.map_to_local(id_path.front())):
+	if id_path.size() < 4:
+		current_state = States.COMBAT
+	if current_state == States.COMBAT && !ground_layer.get_entity_at(ground_layer.map_to_local(id_path.front())):
 		global_position = ground_layer.map_to_local(id_path.front())
+		SoundManager.play_sound($SoundsPlayer, sounds["movement"])
 		return true
 		
 	return false
 
 func attack() -> bool:
 	player.current_health -= 2
-	$SoundsPlayer.stream = $SoundsPlayer.sword_enemy_sound
-	$SoundsPlayer.play()
+	SoundManager.play_sound($SoundsPlayer, sounds["attack"])
 	return true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbgrdnbpvqpow"
-path="res://.godot/imported/water_animation.png-11dc019b089ec0c105c854ad4dc77d53.ctex"
+uid="uid://b5nqr1o6oskmp"
+path="res://.godot/imported/chain_morning_star.png-fed1e619a8cdf48bf514877da0535b6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tileset/water_animation.png"
-dest_files=["res://.godot/imported/water_animation.png-11dc019b089ec0c105c854ad4dc77d53.ctex"]
+source_file="res://assets/sprites/weapons/chain_morning_star.png"
+dest_files=["res://.godot/imported/chain_morning_star.png-fed1e619a8cdf48bf514877da0535b6c.ctex"]
 
 [params]
 

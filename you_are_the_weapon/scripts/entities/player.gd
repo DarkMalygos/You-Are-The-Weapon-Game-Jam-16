@@ -1,26 +1,47 @@
 extends Entity
 class_name Player
 
+enum States {MOVEMENT, WEAPON_SELECTION}
+
 @export var zoom_speed: float = .1
 
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var camera: Camera2D = $Camera2D
 @onready var zoom_velocity: Vector2 = Vector2(zoom_speed, zoom_speed)
 @onready var cell_size: int = ground_layer.tile_set.tile_size.x
-@onready var inventory_container: HBoxContainer = $CanvasLayer/UI/Inventory.get_node("HBoxContainer")
+@onready var inventory_container: HBoxContainer = $CanvasLayer/UI/Inventory.get_node("InventoryContainer")
+@onready var slide_sound: AudioStreamWAV = preload("res://assets/sounds/slide.wav")
 
 var direction_map: Dictionary = {"movement_right": Vector2.RIGHT, "movement_left": Vector2.LEFT, "movement_up": Vector2.UP, "movement_down": Vector2.DOWN}
 var weapon_map: Dictionary = {"weapon_one": 0, "weapon_two": 1, "weapon_three": 2, "weapon_four": 3}
+var selected_weapon: Weapon
+var previous_state: States
+var current_state: States = States.MOVEMENT:
+	get:
+		return current_state
+	set(value):
+		previous_state = current_state
+		current_state = value
 
 func _unhandled_input(event: InputEvent) -> void:
-	for direction: String in direction_map.keys():
-		if event.is_action_pressed(direction):
-			move(direction)
-			ground_layer.move_enemies()
-			
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				if current_state == States.WEAPON_SELECTION:
+					selected_weapon.activate(ground_layer.local_to_map(get_global_mouse_position()))
+	
 	for weapon: String in weapon_map.keys():
 		if event.is_action_pressed(weapon):
-			select(weapon)
+			if try_select(weapon):
+				current_state = States.WEAPON_SELECTION
+			else:
+				current_state = States.MOVEMENT
+	
+	if current_state == States.MOVEMENT:
+		for direction: String in direction_map.keys():
+			if event.is_action_pressed(direction):
+				move(direction)
+				ground_layer.move_enemies()
 			
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -33,9 +54,22 @@ func move(direction: String):
 	ray_cast.force_raycast_update()
 	if !ray_cast.is_colliding():
 		position += direction_map[direction] * cell_size
-		$SlideSound.play()
+		SoundManager.play_sound($SoundsPlayer, slide_sound)
 
-func select(weapon: String):
-		pass
-		
+func try_select(new_weapon_key: String) -> bool:
+	if inventory_container.get_child_count() < weapon_map[new_weapon_key] + 1:
+		return false
 	
+	for node in inventory_container.get_children():
+		node.deselect()
+
+	var new_weapon: Weapon = inventory_container.get_child(weapon_map[new_weapon_key])
+
+	if new_weapon == selected_weapon:
+		selected_weapon = null
+		new_weapon.deselect()
+		return false
+	
+	selected_weapon = new_weapon
+	new_weapon.select(ground_layer.local_to_map(position))
+	return true
