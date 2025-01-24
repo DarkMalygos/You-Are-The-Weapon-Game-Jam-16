@@ -50,7 +50,7 @@ func activate() -> bool:
 func move(id_path: Array[Vector2i]) -> bool:
 	if id_path.size() < 4:
 		current_state = States.COMBAT
-	if current_state == States.COMBAT && ground_layer.is_cell_empty(ground_layer.map_to_local(id_path.front())):
+	if current_state == States.COMBAT && !ground_layer.get_entity_at(ground_layer.map_to_local(id_path.front())):
 		global_position = ground_layer.map_to_local(id_path.front())
 		return true
 		

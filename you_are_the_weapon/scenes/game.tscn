@@ -16,7 +16,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("3_mmd4q")]
-position = Vector2(8, 64)
+position = Vector2(8, 72)
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0
