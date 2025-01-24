@@ -6,6 +6,7 @@ class_name Weapon
 
 @onready var ground_layer: GroundLayer = get_node("/root/Game/TileMap/GroundLayer")
 @onready var valid_tile_hint_layer: TileMapLayer = get_node("/root/Game/TileMap/ValidTileHintLayer")
+@onready var player: Player = get_node("../../../../..")
 
 var valid_cell_ids: Array[Vector2i] = []
 
@@ -38,3 +39,7 @@ func activate(target_cell_id: Vector2i):
 		return
 		
 	entity.current_health -= damage
+	deselect()
+	player.selected_weapon = null
+	player.current_state = player.previous_state
+	ground_layer.move_enemies()
