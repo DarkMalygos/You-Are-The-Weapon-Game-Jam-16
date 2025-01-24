@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddc15bytq3xkk"]
+[gd_scene load_steps=4 format=3 uid="uid://ddc15bytq3xkk"]
 
 [ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_palkn"]
 [ext_resource type="Script" path="res://scripts/weapons/sword.gd" id="2_iu2uc"]
+[ext_resource type="AudioStream" uid="uid://chhjwc1nto0r8" path="res://assets/sounds/dagger_player.wav" id="3_rlogt"]
 
 [node name="Sword" instance=ExtResource("1_palkn")]
 script = ExtResource("2_iu2uc")
+weapon_sound = ExtResource("3_rlogt")

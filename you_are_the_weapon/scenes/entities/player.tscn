@@ -66,6 +66,9 @@ animation = &"default"
 frame = 0
 frame_progress = 0.0
 
+[node name="SoundsPlayer" parent="." index="6"]
+stream = ExtResource("4_6k45j")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
 
 [node name="UI" type="Control" parent="CanvasLayer" index="0"]

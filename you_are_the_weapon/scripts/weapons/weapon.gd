@@ -3,6 +3,7 @@ class_name Weapon
 
 @export var weapon_range: int = 1
 @export var damage: int = 1
+@export var weapon_sound: AudioStreamWAV
 
 @onready var ground_layer: GroundLayer = get_node("/root/Game/TileMap/GroundLayer")
 @onready var valid_tile_hint_layer: TileMapLayer = get_node("/root/Game/TileMap/ValidTileHintLayer")
@@ -42,4 +43,6 @@ func activate(target_cell_id: Vector2i):
 	deselect()
 	player.selected_weapon = null
 	player.current_state = player.previous_state
+	SoundManager.play_sound(player.get_node("SoundsPlayer"), weapon_sound)
+	
 	ground_layer.move_enemies()

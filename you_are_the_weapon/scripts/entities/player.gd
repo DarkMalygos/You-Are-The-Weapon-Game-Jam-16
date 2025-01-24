@@ -9,7 +9,8 @@ enum States {MOVEMENT, WEAPON_SELECTION}
 @onready var camera: Camera2D = $Camera2D
 @onready var zoom_velocity: Vector2 = Vector2(zoom_speed, zoom_speed)
 @onready var cell_size: int = ground_layer.tile_set.tile_size.x
-@onready var inventory_container: HBoxContainer = $CanvasLayer/UI/Inventory.get_node("HBoxContainer")
+@onready var inventory_container: HBoxContainer = $CanvasLayer/UI/Inventory.get_node("InventoryContainer")
+@onready var slide_sound: AudioStreamWAV = preload("res://assets/sounds/slide.wav")
 
 var direction_map: Dictionary = {"movement_right": Vector2.RIGHT, "movement_left": Vector2.LEFT, "movement_up": Vector2.UP, "movement_down": Vector2.DOWN}
 var weapon_map: Dictionary = {"weapon_one": 0, "weapon_two": 1, "weapon_three": 2, "weapon_four": 3}
@@ -34,7 +35,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if try_select(weapon):
 				current_state = States.WEAPON_SELECTION
 			else:
-				current_state = previous_state
+				current_state = States.MOVEMENT
 	
 	if current_state == States.MOVEMENT:
 		for direction: String in direction_map.keys():
@@ -53,15 +54,14 @@ func move(direction: String):
 	ray_cast.force_raycast_update()
 	if !ray_cast.is_colliding():
 		position += direction_map[direction] * cell_size
-		$SoundsPlayer.play()
+		SoundManager.play_sound($SoundsPlayer, slide_sound)
 
 func try_select(new_weapon_key: String) -> bool:
 	if inventory_container.get_child_count() < weapon_map[new_weapon_key] + 1:
 		return false
 	
 	for node in inventory_container.get_children():
-		if node is Weapon:
-			node.deselect()
+		node.deselect()
 
 	var new_weapon: Weapon = inventory_container.get_child(weapon_map[new_weapon_key])
 
