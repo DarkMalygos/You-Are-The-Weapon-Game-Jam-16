@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk2n3ajomraj"
-path="res://.godot/imported/grass2.png-0264e2f5493214cd41b06c12fa4ebc3b.ctex"
+uid="uid://j5x60ubqa725"
+path="res://.godot/imported/stone.png-0be8cddce418cf73f10c5cfb93b50541.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilesets/grass2.png"
-dest_files=["res://.godot/imported/grass2.png-0264e2f5493214cd41b06c12fa4ebc3b.ctex"]
+source_file="res://assets/sprites/tilesets/stone.png"
+dest_files=["res://.godot/imported/stone.png-0be8cddce418cf73f10c5cfb93b50541.ctex"]
 
 [params]
 

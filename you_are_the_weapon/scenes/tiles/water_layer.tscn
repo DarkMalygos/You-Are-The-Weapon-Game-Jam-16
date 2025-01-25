@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://b8jorbfcectgy"]
 
-[ext_resource type="Texture2D" uid="uid://bbgrdnbpvqpow" path="res://tilesets/water_animation.png" id="1_4wnmq"]
-[ext_resource type="Texture2D" uid="uid://pwht0l1uan1w" path="res://tilesets/waterfall_animation.png" id="2_8ijia"]
+[ext_resource type="Texture2D" uid="uid://bbgrdnbpvqpow" path="res://assets/sprites/tilesets/water_animation.png" id="1_4wnmq"]
+[ext_resource type="Texture2D" uid="uid://pwht0l1uan1w" path="res://assets/sprites/tilesets/waterfall_animation.png" id="2_8ijia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6yfd"]
 texture = ExtResource("1_4wnmq")
