@@ -1,24 +1,80 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx121esayws1n"]
+[gd_scene load_steps=15 format=3 uid="uid://cx121esayws1n"]
 
 [ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_0hr47"]
-[ext_resource type="Texture2D" uid="uid://bxmvmcem71f8n" path="res://assets/sprites/entities/enemies/enemy1.png" id="2_s5gbo"]
-[ext_resource type="Texture2D" uid="uid://b26ma1gkpaepn" path="res://assets/sprites/entities/enemies/enemy2.png" id="3_micpi"]
-[ext_resource type="Texture2D" uid="uid://sgsmec28ran1" path="res://assets/sprites/entities/enemies/enemy3.png" id="4_ulp26"]
+[ext_resource type="Texture2D" uid="uid://ck0b7ji1bldbo" path="res://assets/sprites/entities/enemies/woodcutter.png" id="2_4esy8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
-size = Vector2(16, 16)
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjcy5"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik0tg"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcfy8"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cphgw"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv7yc"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_km5g0"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8jvk"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv033"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0llwe"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ijqe"]
+atlas = ExtResource("2_4esy8")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fnb3w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_s5gbo")
+"texture": SubResource("AtlasTexture_kjcy5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_micpi")
+"texture": SubResource("AtlasTexture_ik0tg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ulp26")
+"texture": SubResource("AtlasTexture_wcfy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cphgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv7yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_km5g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8jvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv033")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0llwe")
 }],
 "loop": true,
 "name": &"attack",
@@ -26,7 +82,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_s5gbo")
+"texture": SubResource("AtlasTexture_7ijqe")
 }],
 "loop": true,
 "name": &"default",
@@ -41,9 +97,10 @@ script = ExtResource("1_0hr47")
 shape = SubResource("RectangleShape2D_78tmi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.76837e-07, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fnb3w")
+animation = &"attack"
+metadata/_edit_lock_ = true
 
 [node name="SoundsPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -10.0

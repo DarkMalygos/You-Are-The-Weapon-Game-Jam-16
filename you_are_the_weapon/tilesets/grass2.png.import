@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnguk0h7fkr14"
-path="res://.godot/imported/enemy1.png-ade789a35d0e9b9db2a602a3ee75850d.ctex"
+uid="uid://bk2n3ajomraj"
+path="res://.godot/imported/grass2.png-0264e2f5493214cd41b06c12fa4ebc3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/entities/enemies/enemy1.png"
-dest_files=["res://.godot/imported/enemy1.png-ade789a35d0e9b9db2a602a3ee75850d.ctex"]
+source_file="res://tilesets/grass2.png"
+dest_files=["res://.godot/imported/grass2.png-0264e2f5493214cd41b06c12fa4ebc3b.ctex"]
 
 [params]
 
