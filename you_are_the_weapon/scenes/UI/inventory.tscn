@@ -25,6 +25,7 @@ offset_bottom = 100.0
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 100.0
+mouse_filter = 0
 theme_override_constants/separation = 0
 
 [node name="ChainMorningStar" parent="InventoryContainer" instance=ExtResource("1_g4t78")]

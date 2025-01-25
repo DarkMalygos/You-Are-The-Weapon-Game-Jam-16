@@ -50,8 +50,6 @@ texture = ExtResource("3_uo6wa")
 texture_scale = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
 
 [node name="SlideSound" type="AudioStreamPlayer2D" parent="." index="4"]
 stream = ExtResource("4_6k45j")
@@ -61,6 +59,7 @@ attenuation = 1e-05
 
 [node name="AnimatedSprite2D" parent="." index="5"]
 position = Vector2(0, -2.98023e-08)
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_nuose")
 animation = &"default"
 

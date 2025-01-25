@@ -24,6 +24,9 @@ var current_state: States = States.MOVEMENT:
 		current_state = value
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_moving:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if event.button_index == MOUSE_BUTTON_LEFT:
@@ -50,11 +53,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.zoom -= Vector2(.1, .1)
 
 func move(direction: String):
+	if is_moving:
+		return
+	
 	ray_cast.target_position = direction_map[direction] * cell_size
 	ray_cast.force_raycast_update()
 	if !ray_cast.is_colliding():
-		position += direction_map[direction] * cell_size
+		target_position = position + direction_map[direction] * cell_size
 		SoundManager.play_sound($SoundsPlayer, slide_sound)
+	is_moving = true
 
 func try_select(new_weapon_key: String) -> bool:
 	if inventory_container.get_child_count() < weapon_map[new_weapon_key] + 1:

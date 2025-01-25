@@ -11,6 +11,10 @@ script = ExtResource("1_4t3vt")
 max_cooldown = 1
 health_bar = NodePath("UI/HealthBar")
 
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(1, 1)
+animation = &"default"
+
 [node name="SoundsPlayer" parent="." index="2"]
 stream = ExtResource("3_a162f")
 
@@ -25,9 +29,9 @@ mouse_filter = 2
 
 [node name="HealthBar" type="TextureProgressBar" parent="UI" index="0"]
 layout_mode = 0
-offset_left = -14.0
-offset_top = -31.0
-offset_right = 13.0
+offset_left = -32.0
+offset_top = -72.0
+offset_right = 32.0
 offset_bottom = -8.0
 mouse_filter = 2
 value = 100.0

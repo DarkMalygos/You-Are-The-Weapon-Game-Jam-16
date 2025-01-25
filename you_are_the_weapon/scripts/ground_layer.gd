@@ -28,7 +28,7 @@ func initialize_grid():
 
 func get_entity_at(tile_position: Vector2) -> Entity:
 	for entity in entities:
-		if entity.global_position == tile_position:
+		if entity.target_position == tile_position:
 			return entity
 			
 	return null
