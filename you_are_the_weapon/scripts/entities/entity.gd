@@ -33,4 +33,5 @@ func _process(delta: float) -> void:
 	position += direction * speed
 	
 func destroy():
-	push_warning("not implemented")
+	ground_layer.entities.erase(self)
+	queue_free()
