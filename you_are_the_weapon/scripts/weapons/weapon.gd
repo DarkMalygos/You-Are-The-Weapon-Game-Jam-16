@@ -42,7 +42,7 @@ func activate(target_cell_id: Vector2i):
 	entity.current_health -= damage
 	deselect()
 	player.selected_weapon = null
-	player.current_state = player.previous_state
+	player.current_state = player.States.MOVEMENT
 	SoundManager.play_sound(player.get_node("SoundsPlayer"), weapon_sound)
 	
 	ground_layer.move_enemies()
