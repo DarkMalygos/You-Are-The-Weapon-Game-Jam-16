@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ci5o1r8jq6yqr"]
 
 [ext_resource type="Script" path="res://scripts/weapons/weapon.gd" id="1_p77u0"]
-[ext_resource type="Texture2D" uid="uid://ckkwg6aoibu53" path="res://assets/sprites/weapons/sword.png" id="2_22ji6"]
+[ext_resource type="Texture2D" uid="uid://crltta6lpkrf8" path="res://assets/sprites/weapons/sword.png" id="2_22ji6"]
 
 [node name="Weapon" type="Control"]
 custom_minimum_size = Vector2(100, 100)

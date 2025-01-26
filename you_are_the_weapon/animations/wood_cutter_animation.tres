@@ -1,52 +1,48 @@
-[gd_scene load_steps=15 format=3 uid="uid://cx121esayws1n"]
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://djl5ao7rvx0pm"]
 
-[ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_0hr47"]
-[ext_resource type="Texture2D" uid="uid://ck0b7ji1bldbo" path="res://assets/sprites/entities/enemies/woodcutter.png" id="2_4esy8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
-size = Vector2(64, 64)
+[ext_resource type="Texture2D" uid="uid://ck0b7ji1bldbo" path="res://assets/sprites/entities/enemies/woodcutter.png" id="1_mvbkc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kjcy5"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ik0tg"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wcfy8"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cphgw"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv7yc"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_km5g0"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8jvk"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qv033"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0llwe"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ijqe"]
-atlas = ExtResource("2_4esy8")
+atlas = ExtResource("1_mvbkc")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fnb3w"]
+[resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -88,22 +84,3 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[node name="Entity" type="Area2D"]
-position = Vector2(32, 32)
-collision_layer = 2
-script = ExtResource("1_0hr47")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_78tmi")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_fnb3w")
-animation = &"attack"
-metadata/_edit_lock_ = true
-
-[node name="SoundsPlayer" type="AudioStreamPlayer2D" parent="."]
-volume_db = -10.0
-max_distance = 176.0
-attenuation = 1e-05
