@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_1i3jk"]
 [ext_resource type="PackedScene" uid="uid://cx121esayws1n" path="res://scenes/entities/entity.tscn" id="1_r6h2l"]
-[ext_resource type="Texture2D" uid="uid://d3t7tshfvlv5h" path="res://lights/light2.png" id="3_uo6wa"]
+[ext_resource type="Texture2D" uid="uid://t3tvscgcd0b0" path="res://lights/light3.png" id="3_ku81k"]
 [ext_resource type="Texture2D" uid="uid://crltta6lpkrf8" path="res://assets/sprites/weapons/sword.png" id="3_w425v"]
 [ext_resource type="AudioStream" uid="uid://cgohgfto1p5rf" path="res://assets/sounds/slide.wav" id="4_6k45j"]
 [ext_resource type="PackedScene" uid="uid://3jh4c555swv0" path="res://scenes/UI/inventory.tscn" id="6_kr3v7"]
@@ -43,7 +43,8 @@ scale = Vector2(8, 8)
 position = Vector2(4.54748e-13, 1)
 color = Color(1, 1, 1, 0.6)
 energy = 0.7
-texture = ExtResource("3_uo6wa")
+texture = ExtResource("3_ku81k")
+texture_scale = 0.5
 
 [node name="shadow" type="PointLight2D" parent="lights" index="1"]
 self_modulate = Color(1, 1, 1, 0.6)
@@ -51,7 +52,7 @@ energy = 0.5
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 3.0
-texture = ExtResource("3_uo6wa")
+texture = ExtResource("3_ku81k")
 texture_scale = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
