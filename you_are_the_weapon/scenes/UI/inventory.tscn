@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://3jh4c555swv0"]
+[gd_scene load_steps=2 format=3 uid="uid://3jh4c555swv0"]
 
-[ext_resource type="PackedScene" uid="uid://brf4wway7b2kk" path="res://scenes/weapons/chain_morning_star.tscn" id="1_g4t78"]
 [ext_resource type="PackedScene" uid="uid://ddc15bytq3xkk" path="res://scenes/weapons/sword.tscn" id="1_jsq3h"]
 
 [node name="Inventory" type="Control"]
@@ -28,8 +27,6 @@ offset_bottom = 100.0
 mouse_filter = 0
 theme_override_constants/separation = 0
 
-[node name="ChainMorningStar" parent="InventoryContainer" instance=ExtResource("1_g4t78")]
-layout_mode = 2
-
 [node name="Sword" parent="InventoryContainer" instance=ExtResource("1_jsq3h")]
 layout_mode = 2
+damage = 10

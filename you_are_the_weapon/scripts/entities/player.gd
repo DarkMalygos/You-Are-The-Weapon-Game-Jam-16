@@ -80,3 +80,9 @@ func try_select(new_weapon_key: String) -> bool:
 	selected_weapon = new_weapon
 	new_weapon.select(ground_layer.local_to_map(position))
 	return true
+
+func try_add_weapon(weapon: Weapon):
+	if inventory_container.get_child_count() > 3:
+		return
+		
+	inventory_container.add_child(weapon)

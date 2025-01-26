@@ -5,8 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://onabytuseyt3" path="res://assets/sounds/sword_player.wav" id="2_xcsdf"]
 
 [node name="ChainMorningStar" instance=ExtResource("1_fmrpl")]
-weapon_range = 10
-damage = 10
+weapon_range = 2
 weapon_sound = ExtResource("2_xcsdf")
 
 [node name="Sprite2D" parent="." index="1"]

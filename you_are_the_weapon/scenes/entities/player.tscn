@@ -25,6 +25,11 @@ script = ExtResource("1_1i3jk")
 zoom_speed = 0.1
 health_bar = NodePath("CanvasLayer/UI/HealthBar")
 
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -2.98023e-08)
+sprite_frames = SubResource("SpriteFrames_nuose")
+animation = &"default"
+
 [node name="RayCast2D" type="RayCast2D" parent="." index="1"]
 target_position = Vector2(0, 0)
 collision_mask = 3
@@ -56,12 +61,6 @@ stream = ExtResource("4_6k45j")
 volume_db = -10.0
 max_distance = 176.0
 attenuation = 1e-05
-
-[node name="AnimatedSprite2D" parent="." index="5"]
-position = Vector2(0, -2.98023e-08)
-scale = Vector2(1, 1)
-sprite_frames = SubResource("SpriteFrames_nuose")
-animation = &"default"
 
 [node name="SoundsPlayer" parent="." index="6"]
 stream = ExtResource("4_6k45j")
