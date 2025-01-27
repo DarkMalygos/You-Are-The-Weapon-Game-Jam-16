@@ -43,6 +43,10 @@ func get_cell_ids_in_range(cell_id: Vector2i, weapon_range: int) -> Array[Vector
 		
 		for x in range(-x_range, x_range + 1):
 			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
+			
+			if !get_cell_tile_data(current_cell_id):
+				continue
+				
 			if !astar_grid.is_point_solid(current_cell_id):
 				cell_ids_in_range.append(current_cell_id)
 			
