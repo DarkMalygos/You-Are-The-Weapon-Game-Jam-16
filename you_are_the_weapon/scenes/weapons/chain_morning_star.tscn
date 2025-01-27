@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_fmrpl"]
 [ext_resource type="Texture2D" uid="uid://b5nqr1o6oskmp" path="res://assets/sprites/weapons/chain_morning_star.png" id="2_3galo"]
-[ext_resource type="AudioStream" uid="uid://f2vyn1vw7ok5" path="res://assets/sounds/lance.wav" id="2_jl8cu"]
+[ext_resource type="AudioStream" uid="uid://b7smju2uc8iog" path="res://assets/sounds/axe.wav" id="2_n3143"]
 
 [node name="ChainMorningStar" instance=ExtResource("1_fmrpl")]
 weapon_range = 2
-weapon_sound = ExtResource("2_jl8cu")
+weapon_sound = ExtResource("2_n3143")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_3galo")
