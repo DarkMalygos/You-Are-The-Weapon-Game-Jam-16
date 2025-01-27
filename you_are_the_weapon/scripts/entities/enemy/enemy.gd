@@ -19,7 +19,7 @@ enum States {WANDER, WARNING, COMBAT}
 
 var current_state: States = States.WANDER
 
-func activate() -> bool:
+func activate() -> bool:	
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 		
@@ -28,7 +28,7 @@ func activate() -> bool:
 		ground_layer.local_to_map(player.target_position)
 	).slice(1)
 
-	if id_path.is_empty():			
+	if id_path.is_empty():
 		return true
 		
 	if current_cooldown == max_cooldown:

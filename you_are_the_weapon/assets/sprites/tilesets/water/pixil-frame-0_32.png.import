@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coenfd7q4i1h6"
-path="res://.godot/imported/water_plant.png-223af07a9a04f7860a21a7458fb95380.ctex"
+uid="uid://dk1i1wgn5jxg2"
+path="res://.godot/imported/pixil-frame-0_32.png-1501f4d14d18a9d03c92ddeb03ddc0ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/water_plant.png"
-dest_files=["res://.godot/imported/water_plant.png-223af07a9a04f7860a21a7458fb95380.ctex"]
+source_file="res://assets/sprites/tilesets/water/pixil-frame-0_32.png"
+dest_files=["res://.godot/imported/pixil-frame-0_32.png-1501f4d14d18a9d03c92ddeb03ddc0ce.ctex"]
 
 [params]
 
