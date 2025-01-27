@@ -17,16 +17,16 @@ color = Color(0.552956, 0.552956, 0.552956, 1)
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
 
 [node name="WoodCutter" parent="." instance=ExtResource("4_rlrpj")]
-position = Vector2(-96, -96)
+position = Vector2(-224, -288)
 
 [node name="SoldierMorningStar" parent="." instance=ExtResource("4_c8knm")]
-position = Vector2(32, -96)
+position = Vector2(160, -288)
 
 [node name="WoodCutter2" parent="." instance=ExtResource("4_rlrpj")]
-position = Vector2(-96, 160)
+position = Vector2(-288, 288)
 
 [node name="SoldierMorningStar2" parent="." instance=ExtResource("4_c8knm")]
-position = Vector2(32, 160)
+position = Vector2(224, 288)
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0

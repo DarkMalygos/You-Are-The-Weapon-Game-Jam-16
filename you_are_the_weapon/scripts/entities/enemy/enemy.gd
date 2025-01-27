@@ -15,16 +15,11 @@ class_name Enemy
 var current_cooldown: int = 0
 var packed_weapon: PackedScene
 
-enum States {
-	WANDER,
-	COMBAT
-}
+enum States {WANDER, WARNING, COMBAT}
 
 var current_state: States = States.WANDER
 
 func activate() -> bool:
-	print(name, ": ", target_position)
-	
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 		
@@ -52,7 +47,16 @@ func activate() -> bool:
 func move(id_path: Array[Vector2i]):	
 	if id_path.size() < 4:
 		current_state = States.COMBAT
+		$Sprite2D.visible = false
+	
+	if id_path.size() == 4:
+		current_state = States.WARNING
+		$Sprite2D.visible = true
 		
+	if id_path.size() > 4:
+		current_state == States.WANDER
+		$Sprite2D.visible = false
+	
 	var new_position = id_path.front()
 	if current_state == States.COMBAT && !ground_layer.get_entity_at(ground_layer.map_to_local(new_position)):
 		target_position = ground_layer.map_to_local(new_position)
