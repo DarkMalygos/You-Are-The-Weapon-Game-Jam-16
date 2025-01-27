@@ -23,6 +23,8 @@ enum States {
 var current_state: States = States.WANDER
 
 func activate() -> bool:
+	print(name, ": ", target_position)
+	
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 		
@@ -32,25 +34,22 @@ func activate() -> bool:
 	).slice(1)
 
 	if id_path.is_empty():			
-		return false
+		return true
 		
 	if current_cooldown == max_cooldown:
 		current_cooldown -= 1
 		return true
 		
 	if id_path.size() < attack_range + 1:
-		if attack():
-			current_cooldown = max_cooldown
-			return true
-			
-		return false
-		
-	if move(id_path):
+		attack()
+		current_cooldown = max_cooldown
 		return true
 		
-	return false
+	move(id_path)
+		
+	return true
 
-func move(id_path: Array[Vector2i]) -> bool:
+func move(id_path: Array[Vector2i]):	
 	if id_path.size() < 4:
 		current_state = States.COMBAT
 		
@@ -58,15 +57,11 @@ func move(id_path: Array[Vector2i]) -> bool:
 	if current_state == States.COMBAT && !ground_layer.get_entity_at(ground_layer.map_to_local(new_position)):
 		target_position = ground_layer.map_to_local(new_position)
 		SoundManager.play_sound($SoundsPlayer, movement_sound)
-		return true
-		
-	return false
 
-func attack() -> bool:
+func attack():
 	player.current_health -= damage
 	SoundManager.play_sound($SoundsPlayer, attack_sound)
 	#$AnimatedSprite2D.play("attack")
-	return true
 
 func destroy():
 	player.try_add_weapon(packed_weapon.instantiate())
