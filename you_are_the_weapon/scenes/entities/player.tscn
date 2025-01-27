@@ -29,6 +29,7 @@ health_bar = NodePath("CanvasLayer/UI/HealthBar")
 position = Vector2(0, -2.98023e-08)
 sprite_frames = SubResource("SpriteFrames_nuose")
 animation = &"default"
+metadata/_edit_lock_ = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="1"]
 target_position = Vector2(0, 0)
@@ -42,17 +43,16 @@ scale = Vector2(8, 8)
 [node name="light" type="PointLight2D" parent="lights" index="0"]
 position = Vector2(4.54748e-13, 1)
 color = Color(1, 1, 1, 0.6)
-energy = 0.7
+energy = 0.5
 texture = ExtResource("4_74wt6")
 
 [node name="shadow" type="PointLight2D" parent="lights" index="1"]
 self_modulate = Color(1, 1, 1, 0.6)
-energy = 0.5
+energy = 0.3
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 3.0
 texture = ExtResource("4_74wt6")
-texture_scale = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="." index="3"]
 

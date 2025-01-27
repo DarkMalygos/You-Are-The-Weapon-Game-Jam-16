@@ -9,7 +9,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
+color = Color(0.552956, 0.552956, 0.552956, 1)
 
 [node name="TileMap" parent="." instance=ExtResource("1_rrgd5")]
 
