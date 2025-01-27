@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://kjdyjmw1xtix"]
+
+[ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemies/enemy.tscn" id="1_lq4ym"]
+[ext_resource type="Script" path="res://scripts/entities/enemy/wood_cutter.gd" id="2_pp0io"]
+[ext_resource type="AudioStream" uid="uid://biounnn03qrqs" path="res://assets/sounds/sword_enemy.wav" id="3_8l4h3"]
+
+[node name="WoodCutter" instance=ExtResource("1_lq4ym")]
+script = ExtResource("2_pp0io")
+attack_sound = ExtResource("3_8l4h3")
