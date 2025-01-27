@@ -6,4 +6,5 @@
 
 [node name="WoodCutter" instance=ExtResource("1_lq4ym")]
 script = ExtResource("2_pp0io")
+damage = 3
 attack_sound = ExtResource("3_2pcdv")

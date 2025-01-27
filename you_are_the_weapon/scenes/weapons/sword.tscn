@@ -6,4 +6,5 @@
 
 [node name="Sword" instance=ExtResource("1_palkn")]
 script = ExtResource("2_iu2uc")
+damage = 10
 weapon_sound = ExtResource("3_npyp3")

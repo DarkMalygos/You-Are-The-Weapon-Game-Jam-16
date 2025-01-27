@@ -29,4 +29,3 @@ theme_override_constants/separation = 0
 
 [node name="Sword" parent="InventoryContainer" instance=ExtResource("1_jsq3h")]
 layout_mode = 2
-damage = 10

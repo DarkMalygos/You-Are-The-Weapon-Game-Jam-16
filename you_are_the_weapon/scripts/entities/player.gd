@@ -83,6 +83,6 @@ func try_select(new_weapon_key: String) -> bool:
 
 func try_add_weapon(weapon: Weapon):
 	if inventory_container.get_child_count() > 3:
-		return
+		inventory_container.remove_child(inventory_container.get_child(0))
 		
 	inventory_container.add_child(weapon)
