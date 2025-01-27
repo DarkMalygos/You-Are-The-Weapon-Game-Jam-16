@@ -86,3 +86,6 @@ func try_add_weapon(weapon: Weapon):
 		inventory_container.remove_child(inventory_container.get_child(0))
 		
 	inventory_container.add_child(weapon)
+
+func destroy():
+	return

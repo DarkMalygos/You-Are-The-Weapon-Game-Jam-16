@@ -36,12 +36,15 @@ func get_entity_at(tile_position: Vector2) -> Entity:
 func get_cell_ids_in_range(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
 	var cell_ids_in_range: Array[Vector2i] = []
 	var x_range: int
+	var current_cell_id: Vector2i
 	
 	for y in range(-weapon_range, weapon_range + 1):
 		x_range = weapon_range - abs(y)
 		
 		for x in range(-x_range, x_range + 1):
-			cell_ids_in_range.append(Vector2i(cell_id.x + x, cell_id.y + y))
+			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
+			if !astar_grid.is_point_solid(current_cell_id):
+				cell_ids_in_range.append(current_cell_id)
 			
 	return cell_ids_in_range
 
