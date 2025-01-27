@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx121esayws1n"]
 
 [ext_resource type="Script" path="res://scripts/entities/entity.gd" id="1_0hr47"]
-[ext_resource type="SpriteFrames" uid="uid://djl5ao7rvx0pm" path="res://animations/wood_cutter_animation.tres" id="2_gdp5f"]
+[ext_resource type="SpriteFrames" uid="uid://c78gvjnor8kr4" path="res://animations/wood_cutter_animation.tres" id="2_gdp5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78tmi"]
 size = Vector2(64, 64)
