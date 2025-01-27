@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnidu0buvyf10"]
+
+[ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_30xq7"]
+[ext_resource type="AudioStream" uid="uid://b7smju2uc8iog" path="res://assets/sounds/axe.wav" id="2_f1m8i"]
+[ext_resource type="Texture2D" uid="uid://1mu6g6ewgvu" path="res://assets/sprites/weapons/axe.png" id="3_vpja3"]
+
+[node name="Axe" instance=ExtResource("1_30xq7")]
+damage = 2
+weapon_sound = ExtResource("2_f1m8i")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_vpja3")
