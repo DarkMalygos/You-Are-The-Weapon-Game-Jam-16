@@ -1,10 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://kjdyjmw1xtix"]
+[gd_scene load_steps=5 format=3 uid="uid://kjdyjmw1xtix"]
 
 [ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemies/enemy.tscn" id="1_lq4ym"]
 [ext_resource type="Script" path="res://scripts/entities/enemy/wood_cutter.gd" id="2_pp0io"]
 [ext_resource type="AudioStream" uid="uid://b7smju2uc8iog" path="res://assets/sounds/axe.wav" id="3_2pcdv"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1pcu2"]
+polygon = PackedVector2Array(1, -29, -3, -29, -7, -26, -9, -23, -8, -18, -4, -14, -4, -13, -8, -13, -9, -12, -12, -12, -12, -13, -14, -13, -18, -6, -18, -3, -17, -3, -17, 0, -18, 3, -19, 3, -19, 7, -14, 11, -10, 11, -10, 15, -9, 15, -9, 16, -11, 27, -12, 28, -14, 29, -14, 32, -9, 32, -4, 29, -4, 26, -3, 26, -3, 20, -1, 18, 0, 17, 4, 25, 5, 28, 7, 29, 12, 29, 12, 27, 9, 25, 9, 21, 5, 12, 7, 7, 11, 12, 10, 14, 12, 17, 16, 17, 20, 22, 15, 25, 20, 31, 26, 27, 27, 28, 28, 28, 29, 27, 28, 26, 29, 24, 23, 18, 22, 19, 17, 16, 18, 14, 12, 1, 12, -8, 9, -11, 4, -12, 4, -13, 6, -13, 7, -16, 10, -18, 10, -24, 6, -28, 1, -29)
+
 [node name="WoodCutter" instance=ExtResource("1_lq4ym")]
 script = ExtResource("2_pp0io")
 damage = 3
 attack_sound = ExtResource("3_2pcdv")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="5"]
+occluder = SubResource("OccluderPolygon2D_1pcu2")
