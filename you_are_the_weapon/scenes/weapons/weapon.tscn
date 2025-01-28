@@ -10,6 +10,7 @@ anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 100.0
 script = ExtResource("1_p77u0")
+sprite_name = "axe"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

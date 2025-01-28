@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddc15bytq3xkk"]
+[gd_scene load_steps=2 format=3 uid="uid://ddc15bytq3xkk"]
 
 [ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_palkn"]
-[ext_resource type="Script" path="res://scripts/weapons/sword.gd" id="2_iu2uc"]
-[ext_resource type="AudioStream" uid="uid://onabytuseyt3" path="res://assets/sounds/sword_player.wav" id="3_npyp3"]
 
 [node name="Sword" instance=ExtResource("1_palkn")]
-script = ExtResource("2_iu2uc")
-damage = 10
-weapon_sound = ExtResource("3_npyp3")
+damage = 3
+sprite_name = "sword"

@@ -33,7 +33,7 @@ func get_entity_at(tile_position: Vector2) -> Entity:
 			
 	return null
 	
-func get_cell_ids_in_range(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
+func get_cell_ids_diamond(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
 	var cell_ids_in_range: Array[Vector2i] = []
 	var x_range: int
 	var current_cell_id: Vector2i
@@ -44,7 +44,23 @@ func get_cell_ids_in_range(cell_id: Vector2i, weapon_range: int) -> Array[Vector
 		for x in range(-x_range, x_range + 1):
 			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
 			
-			if !get_cell_tile_data(current_cell_id):
+			if !get_cell_tile_data(current_cell_id) || current_cell_id == cell_id:
+				continue
+				
+			if !astar_grid.is_point_solid(current_cell_id):
+				cell_ids_in_range.append(current_cell_id)
+			
+	return cell_ids_in_range
+	
+func get_cell_ids_square(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
+	var cell_ids_in_range: Array[Vector2i] = []
+	var current_cell_id: Vector2i
+	
+	for y in range(-weapon_range, weapon_range + 1):		
+		for x in range(-weapon_range, weapon_range + 1):
+			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
+			
+			if !get_cell_tile_data(current_cell_id) || current_cell_id == cell_id:
 				continue
 				
 			if !astar_grid.is_point_solid(current_cell_id):

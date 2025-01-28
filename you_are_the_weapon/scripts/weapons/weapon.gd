@@ -4,6 +4,7 @@ class_name Weapon
 @export var weapon_range: int = 1
 @export var damage: int = 1
 @export var weapon_sound: AudioStreamWAV
+@export var sprite_name: String = "sword"
 
 @onready var ground_layer: GroundLayer = get_node("/root/Game/TileMap/GroundLayer")
 @onready var valid_tile_hint_layer: TileMapLayer = get_node("/root/Game/TileMap/ValidTileHintLayer")
@@ -20,7 +21,7 @@ func deselect():
 	hide_valid_cells()
 
 func show_valid_cells(cell_id: Vector2i):
-	valid_cell_ids = ground_layer.get_cell_ids_in_range(cell_id, weapon_range)
+	valid_cell_ids = ground_layer.get_cell_ids_diamond(cell_id, weapon_range)
 	for valid_cell_id in valid_cell_ids:
 		valid_tile_hint_layer.set_cell(valid_cell_id, 0, Vector2i(2, 0))
 

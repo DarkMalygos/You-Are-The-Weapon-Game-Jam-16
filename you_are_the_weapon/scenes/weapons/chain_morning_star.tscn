@@ -8,6 +8,7 @@
 weapon_range = 2
 damage = 3
 weapon_sound = ExtResource("2_pguq3")
+sprite_name = "chain_morning_star"
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_3galo")

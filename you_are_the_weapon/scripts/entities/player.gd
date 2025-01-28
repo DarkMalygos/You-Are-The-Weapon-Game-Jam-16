@@ -79,6 +79,7 @@ func try_select(new_weapon_key: String) -> bool:
 	
 	selected_weapon = new_weapon
 	new_weapon.select(ground_layer.local_to_map(position))
+	$AnimatedSprite2D.animation = new_weapon.sprite_name
 	return true
 
 func try_add_weapon(weapon: Weapon):
