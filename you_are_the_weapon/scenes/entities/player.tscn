@@ -41,6 +41,7 @@ animations = [{
 [node name="Player" node_paths=PackedStringArray("health_bar") instance=ExtResource("1_r6h2l")]
 script = ExtResource("1_1i3jk")
 zoom_speed = 0.1
+max_health = 40
 health_bar = NodePath("CanvasLayer/UI/HealthBar")
 
 [node name="AnimatedSprite2D" parent="." index="0"]

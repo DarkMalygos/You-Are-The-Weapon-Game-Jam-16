@@ -1,7 +1,7 @@
 extends Entity
 class_name Enemy
 
-@export var max_cooldown: int = 1
+@export var max_cooldown: int = 3
 @export var damage: int = 1
 @export var attack_range: int = 1
 @export var attack_sound: AudioStreamWAV
@@ -12,7 +12,10 @@ class_name Enemy
 @onready var player: Player = get_node("../Player")
 @onready var movement_sound: AudioStreamWAV = preload("res://assets/sounds/slide.wav")
 
-var current_cooldown: int = 0
+var current_cooldown: int = 0:
+	set(value):
+		current_cooldown = max(0, value)
+		
 var packed_weapon: PackedScene
 
 enum States {WANDER, WARNING, COMBAT}
@@ -20,6 +23,10 @@ enum States {WANDER, WARNING, COMBAT}
 var current_state: States = States.WANDER
 
 func activate() -> bool:	
+	if current_cooldown > 0:
+		current_cooldown -= 1
+		return true
+	
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
 	
@@ -29,10 +36,6 @@ func activate() -> bool:
 	).slice(1)
 
 	if id_path.is_empty():
-		return true
-		
-	if current_cooldown == max_cooldown:
-		current_cooldown -= 1
 		return true
 		
 	if id_path.size() < attack_range + 1:

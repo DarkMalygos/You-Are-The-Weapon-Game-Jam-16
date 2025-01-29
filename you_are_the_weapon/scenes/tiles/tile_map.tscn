@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://b6evk3x0i2utw"]
+[gd_scene load_steps=28 format=4 uid="uid://b6evk3x0i2utw"]
 
 [ext_resource type="Texture2D" uid="uid://dk1i1wgn5jxg2" path="res://assets/sprites/tilesets/water/pixil-frame-0_32.png" id="1_ieuk4"]
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_p2fia"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bpbahaiof3xn3" path="res://assets/sprites/UI/overlay_tileset.png" id="4_2b0cq"]
 [ext_resource type="Script" path="res://scripts/ground_layer.gd" id="5_8enkd"]
 [ext_resource type="Texture2D" uid="uid://c6rtvj4d6j5vc" path="res://assets/sprites/tilesets/water/water1.png" id="5_qc2ny"]
+[ext_resource type="Texture2D" uid="uid://plwdocevp52n" path="res://assets/sprites/tilesets/empty_tile.png" id="9_xooe6"]
 [ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/tree_dark_128.png" id="10_mn2gd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0noib"]
@@ -206,6 +207,12 @@ texture = ExtResource("10_mn2gd")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i1u8v"]
+texture = ExtResource("9_xooe6")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
+
 [sub_resource type="TileSet" id="TileSet_8thk4"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
@@ -216,6 +223,7 @@ sources/0 = SubResource("TileSetAtlasSource_14vvj")
 sources/1 = SubResource("TileSetAtlasSource_ppm7n")
 sources/2 = SubResource("TileSetAtlasSource_o1wmp")
 sources/3 = SubResource("TileSetAtlasSource_71m1n")
+sources/4 = SubResource("TileSetAtlasSource_i1u8v")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hycth"]
 polygon = PackedVector2Array(-46, 127, -59, 132, -65, 154, -62, 179, -60, 185, -25, 191, -4, 185, 0, 168, 1, 151, -12, 130, -46, 127)
