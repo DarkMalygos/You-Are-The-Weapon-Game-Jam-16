@@ -7,9 +7,19 @@ var astar_grid = AStarGrid2D.new()
 var entities: Array[Entity] = []
 
 func _ready() -> void:
-	initialize_grid()
+	create_boundary_tiles(1)
+	initialize_astar_grid()
 
-func initialize_grid():	
+func create_boundary_tiles(radius: int):
+	var used_cells = get_used_cells()
+	
+	for used_cell in used_cells:
+		for x in range(-radius, radius + 1):  # Vízszintesen a sugár mentén
+			for y in range(-radius, radius + 1):  # Függőlegesen a sugár mentén
+				if x != 0 or y != 0:  # Nem kell felülírni az aktuális csempét
+					create_boundary_tile(used_cell + Vector2i(x, y))
+		
+func initialize_astar_grid():	
 	astar_grid.region = get_used_rect()
 	astar_grid.cell_size = cell_size
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
@@ -25,6 +35,10 @@ func initialize_grid():
 			var tile_data = get_cell_tile_data(tile_position)
 			if !tile_data || tile_data.get_collision_polygons_count(0) > 0:
 				astar_grid.set_point_solid(tile_position)
+		
+func create_boundary_tile(cell: Vector2i):
+		if not get_cell_tile_data(cell):
+			set_cell(cell, 4, Vector2i(0, 0))
 
 func get_entity_at(tile_position: Vector2) -> Entity:
 	for entity in entities:
@@ -65,8 +79,11 @@ func get_cell_ids_diagonal(center_cell_id: Vector2i, weapon_range: int) -> Array
 			
 	return cell_ids_in_range
 
-func is_cell_valid(cell_id: Vector2i, center_cell_id: Vector2i):
-	if !get_cell_tile_data(cell_id) || center_cell_id == cell_id ||astar_grid.is_point_solid(cell_id):
+func is_cell_valid(cell_id: Vector2i, center_cell_id: Vector2i) -> bool:		
+	if !get_cell_tile_data(cell_id) || center_cell_id == cell_id:
+		return false
+		
+	if astar_grid.is_point_solid(cell_id):
 		return false
 		
 	return true

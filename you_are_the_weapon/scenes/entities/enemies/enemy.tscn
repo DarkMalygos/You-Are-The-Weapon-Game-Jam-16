@@ -9,7 +9,7 @@
 
 [node name="Enemy" node_paths=PackedStringArray("health_bar") instance=ExtResource("1_2gme0")]
 script = ExtResource("1_4t3vt")
-max_cooldown = 1
+max_cooldown = 3
 damage = 1
 attack_range = 1
 attack_sound = null
