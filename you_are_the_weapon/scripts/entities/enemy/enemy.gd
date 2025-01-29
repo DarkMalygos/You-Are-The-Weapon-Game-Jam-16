@@ -11,6 +11,7 @@ class_name Enemy
 @onready var right_bound = Vector2i(4, 4)
 @onready var player: Player = get_node("../Player")
 @onready var movement_sound: AudioStreamWAV = preload("res://assets/sounds/slide.wav")
+#@onready var player_collision: CollisionShape2D = get_node("/root/Game/Player/CollisionShape2D")
 
 var current_cooldown: int = 0:
 	set(value):
@@ -47,10 +48,14 @@ func activate() -> bool:
 		
 	return true
 
-func move(id_path: Array[Vector2i]):	
+func move(id_path: Array[Vector2i]):
 	if id_path.size() < 4:
-		current_state = States.COMBAT
-		$Sprite2D.visible = false
+		$RayCast2D.target_position = player.target_position - target_position
+		$RayCast2D.force_raycast_update()
+		var collider = $RayCast2D.get_collider()
+		if collider == null:
+			current_state = States.COMBAT
+			$Sprite2D.visible = false
 	
 	if id_path.size() == 4:
 		current_state = States.WARNING

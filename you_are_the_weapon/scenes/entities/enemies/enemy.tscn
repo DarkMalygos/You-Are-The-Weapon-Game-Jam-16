@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b2415uirjw0ha" path="res://assets/sprites/health_bars/progress_bar.png" id="4_0q7c0"]
 
 [node name="Enemy" node_paths=PackedStringArray("health_bar") instance=ExtResource("1_2gme0")]
+collision_mask = 3
 script = ExtResource("1_4t3vt")
 max_cooldown = 3
 damage = 1
@@ -21,7 +22,9 @@ position = Vector2(-4.76837e-07, -55)
 scale = Vector2(0.9375, 0.9375)
 texture = ExtResource("3_cmjcf")
 
-[node name="UI" type="Control" parent="." index="3"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+
+[node name="UI" type="Control" parent="." index="4"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,5 +45,5 @@ nine_patch_stretch = true
 texture_under = ExtResource("3_vrmw4")
 texture_progress = ExtResource("4_0q7c0")
 
-[node name="SoundsPlayer" parent="." index="4"]
+[node name="SoundsPlayer" parent="." index="5"]
 stream = ExtResource("3_a162f")
