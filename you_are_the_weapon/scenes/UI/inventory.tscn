@@ -19,13 +19,14 @@ grow_vertical = 0
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 100.0
+mouse_filter = 1
 
 [node name="InventoryContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 offset_right = 400.0
 offset_bottom = 100.0
-mouse_filter = 0
 theme_override_constants/separation = 0
 
 [node name="Sword" parent="InventoryContainer" instance=ExtResource("1_jsq3h")]
 layout_mode = 2
+mouse_filter = 1

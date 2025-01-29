@@ -8,7 +8,7 @@
 [node name="Axe" instance=ExtResource("1_30xq7")]
 script = ExtResource("2_l5ga8")
 weapon_sound = ExtResource("2_f1m8i")
-sprite_name = "sword"
+sprite_name = "axe"
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_vpja3")

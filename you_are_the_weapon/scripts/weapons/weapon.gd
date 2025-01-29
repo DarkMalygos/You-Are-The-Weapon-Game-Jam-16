@@ -1,6 +1,8 @@
 extends Control
 class_name Weapon
 
+signal weapon_mouse_down(weapon: Weapon)
+
 @export var weapon_range: int = 1
 @export var damage: int = 1
 @export var weapon_sound: AudioStreamWAV
@@ -11,6 +13,9 @@ class_name Weapon
 @onready var player: Player = get_node("../../../../..")
 
 var valid_cell_ids: Array[Vector2i] = []
+
+func _ready() -> void:
+	weapon_mouse_down.connect(player.on_weapon_mouse_down)
 
 func select(position: Vector2i):
 	$ColorRect.color = Color.RED
@@ -47,3 +52,7 @@ func activate(target_cell_id: Vector2i):
 	SoundManager.play_sound(player.get_node("SoundsPlayer"), weapon_sound)
 	
 	ground_layer.move_enemies()
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse"):
+		weapon_mouse_down.emit(self)

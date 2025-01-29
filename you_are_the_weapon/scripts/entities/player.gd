@@ -67,11 +67,20 @@ func try_select(new_weapon_key: String) -> bool:
 	if inventory_container.get_child_count() < weapon_map[new_weapon_key] + 1:
 		return false
 	
+	var new_weapon: Weapon = inventory_container.get_child(weapon_map[new_weapon_key])
+	
+	return select(new_weapon)
+
+func on_weapon_mouse_down(weapon: Weapon):
+	if select(weapon):
+		current_state = States.WEAPON_SELECTION
+	else:
+		current_state = States.MOVEMENT
+	
+func select(new_weapon) -> bool:
 	for node in inventory_container.get_children():
 		node.deselect()
-
-	var new_weapon: Weapon = inventory_container.get_child(weapon_map[new_weapon_key])
-
+	
 	if new_weapon == selected_weapon:
 		selected_weapon = null
 		new_weapon.deselect()

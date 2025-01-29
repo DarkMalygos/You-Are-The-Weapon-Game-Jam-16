@@ -33,7 +33,7 @@ func get_entity_at(tile_position: Vector2) -> Entity:
 			
 	return null
 	
-func get_cell_ids_diamond(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
+func get_cell_ids_diamond(center_cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
 	var cell_ids_in_range: Array[Vector2i] = []
 	var x_range: int
 	var current_cell_id: Vector2i
@@ -42,31 +42,34 @@ func get_cell_ids_diamond(cell_id: Vector2i, weapon_range: int) -> Array[Vector2
 		x_range = weapon_range - abs(y)
 		
 		for x in range(-x_range, x_range + 1):
-			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
+			current_cell_id = Vector2i(center_cell_id.x + x, center_cell_id.y + y)
 			
-			if !get_cell_tile_data(current_cell_id) || current_cell_id == cell_id:
-				continue
-				
-			if !astar_grid.is_point_solid(current_cell_id):
+			if is_cell_valid(current_cell_id, center_cell_id):
 				cell_ids_in_range.append(current_cell_id)
 			
 	return cell_ids_in_range
-	
-func get_cell_ids_square(cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
-	var cell_ids_in_range: Array[Vector2i] = []
+
+func get_cell_ids_diagonal(center_cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
+	var cell_ids_in_range: Array[Vector2i]
 	var current_cell_id: Vector2i
+	var distance: int
 	
-	for y in range(-weapon_range, weapon_range + 1):		
-		for x in range(-weapon_range, weapon_range + 1):
-			current_cell_id = Vector2i(cell_id.x + x, cell_id.y + y)
-			
-			if !get_cell_tile_data(current_cell_id) || current_cell_id == cell_id:
-				continue
-				
-			if !astar_grid.is_point_solid(current_cell_id):
-				cell_ids_in_range.append(current_cell_id)
+	for current_range in range(weapon_range, 0, -1):
+		distance = current_range * 2
+		for y in range(-current_range, current_range + 1, distance):
+			for x in range(-current_range, current_range + 1, distance):
+				current_cell_id = Vector2i(center_cell_id.x + x, center_cell_id.y + y)
+		
+				if is_cell_valid(current_cell_id, center_cell_id):
+					cell_ids_in_range.append(current_cell_id)
 			
 	return cell_ids_in_range
+
+func is_cell_valid(cell_id: Vector2i, center_cell_id: Vector2i):
+	if !get_cell_tile_data(cell_id) || center_cell_id == cell_id ||astar_grid.is_point_solid(cell_id):
+		return false
+		
+	return true
 
 func move_enemies():
 	for entity in entities:
