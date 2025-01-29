@@ -23,6 +23,12 @@ position = Vector2(160, -288)
 [node name="WoodCutter" parent="." instance=ExtResource("4_rlrpj")]
 position = Vector2(-224, -160)
 
+[node name="SoldierMorningStar2" parent="." instance=ExtResource("4_c8knm")]
+position = Vector2(288, 224)
+
+[node name="WoodCutter2" parent="." instance=ExtResource("4_rlrpj")]
+position = Vector2(-96, 352)
+
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0
 max_distance = 176.0

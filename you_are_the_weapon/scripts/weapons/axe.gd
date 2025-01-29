@@ -36,6 +36,7 @@ func attack_entities_in_line(center_cell_id: Vector2i, axis_vector: Vector2i):
 	var current_entity: Entity
 	var x_position: int
 	var y_posiiton: int
+	var is_successful: bool = false
 	
 	for axis in range(-1, 2):
 		x_position = center_cell_id.x + axis * axis_vector.x
@@ -44,10 +45,7 @@ func attack_entities_in_line(center_cell_id: Vector2i, axis_vector: Vector2i):
 		current_entity = ground_layer.get_entity_at(entity_position)
 		if current_entity:
 			current_entity.current_health -= damage
-			deselect()
-			player.selected_weapon = null
-			player.current_state = player.States.MOVEMENT
-			SoundManager.play_sound(player.get_node("SoundsPlayer"), weapon_sound)
-			
-			ground_layer.move_enemies()
-			
+			is_successful = true
+	
+	if is_successful:
+		end_turn()

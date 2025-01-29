@@ -46,13 +46,16 @@ func activate(target_cell_id: Vector2i):
 		return
 		
 	entity.current_health -= damage
+	end_turn()
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_mouse"):
+		weapon_mouse_down.emit(self)
+
+func end_turn():
 	deselect()
 	player.selected_weapon = null
 	player.current_state = player.States.MOVEMENT
 	SoundManager.play_sound(player.get_node("SoundsPlayer"), weapon_sound)
 	
 	ground_layer.move_enemies()
-
-func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		weapon_mouse_down.emit(self)

@@ -24,4 +24,3 @@ scale = Vector2(1.5625, 1.5625)
 texture = ExtResource("2_22ji6")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

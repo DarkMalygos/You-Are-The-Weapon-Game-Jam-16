@@ -22,7 +22,7 @@ var current_state: States = States.WANDER
 func activate() -> bool:	
 	if !ground_layer.get_used_rect().has_point(ground_layer.local_to_map(player.global_position)):
 		return false
-		
+	
 	var id_path = ground_layer.astar_grid.get_id_path(
 		ground_layer.local_to_map(target_position),
 		ground_layer.local_to_map(player.target_position)
