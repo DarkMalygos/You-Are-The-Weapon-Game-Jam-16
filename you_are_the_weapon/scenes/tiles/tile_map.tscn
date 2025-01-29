@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b6evk3x0i2utw"]
+[gd_scene load_steps=26 format=4 uid="uid://b6evk3x0i2utw"]
 
 [ext_resource type="Texture2D" uid="uid://dk1i1wgn5jxg2" path="res://assets/sprites/tilesets/water/pixil-frame-0_32.png" id="1_ieuk4"]
 [ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_p2fia"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bpbahaiof3xn3" path="res://assets/sprites/UI/overlay_tileset.png" id="4_2b0cq"]
 [ext_resource type="Script" path="res://scripts/ground_layer.gd" id="5_8enkd"]
 [ext_resource type="Texture2D" uid="uid://c6rtvj4d6j5vc" path="res://assets/sprites/tilesets/water/water1.png" id="5_qc2ny"]
+[ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/tree_dark_128.png" id="10_mn2gd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0noib"]
 texture = ExtResource("1_ieuk4")
@@ -220,9 +221,15 @@ texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 2:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlke4"]
+texture = ExtResource("10_mn2gd")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_t8rvd"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_2sltj")
+sources/1 = SubResource("TileSetAtlasSource_tlke4")
 
 [node name="TileMap" type="Node2D"]
 
@@ -317,4 +324,5 @@ script = ExtResource("5_8enkd")
 occluder = SubResource("OccluderPolygon2D_hycth")
 
 [node name="ValidTileHintLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAACAP//AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_t8rvd")
