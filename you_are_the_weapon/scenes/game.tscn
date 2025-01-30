@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bml2jyasedhvy"]
+[gd_scene load_steps=6 format=3 uid="uid://bml2jyasedhvy"]
 
 [ext_resource type="PackedScene" uid="uid://b6evk3x0i2utw" path="res://scenes/tiles/tile_map.tscn" id="1_rrgd5"]
 [ext_resource type="PackedScene" uid="uid://d372sammkk0fv" path="res://scenes/entities/player.tscn" id="2_fhnwy"]
 [ext_resource type="PackedScene" uid="uid://c2txxcuklg33c" path="res://scenes/entities/enemies/soldier_morning_star.tscn" id="4_c8knm"]
 [ext_resource type="PackedScene" uid="uid://kjdyjmw1xtix" path="res://scenes/entities/enemies/wood_cutter.tscn" id="4_rlrpj"]
 [ext_resource type="Script" path="res://scripts/music_player.gd" id="5_rhq4o"]
-[ext_resource type="AudioStream" uid="uid://c1324k7g1io48" path="res://assets/sounds/water.wav" id="6_qtobb"]
 
 [node name="Game" type="Node2D"]
 
@@ -19,19 +18,19 @@ position = Vector2(0, -4)
 
 [node name="SoldierMorningStar" parent="." instance=ExtResource("4_c8knm")]
 position = Vector2(224, -288)
-collision_mask = 1
+warning_range = 5
 
 [node name="WoodCutter" parent="." instance=ExtResource("4_rlrpj")]
-position = Vector2(-224, -160)
-collision_mask = 1
+position = Vector2(352, 32)
+warning_range = 5
 
 [node name="SoldierMorningStar2" parent="." instance=ExtResource("4_c8knm")]
 position = Vector2(288, 224)
-collision_mask = 1
+warning_range = 5
 
 [node name="WoodCutter2" parent="." instance=ExtResource("4_rlrpj")]
 position = Vector2(-96, 352)
-collision_mask = 1
+warning_range = 5
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0
@@ -40,7 +39,6 @@ attenuation = 1.75277e-05
 script = ExtResource("5_rhq4o")
 
 [node name="EnvironmentSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_qtobb")
 volume_db = -12.0
 attenuation = 1e-05
 panning_strength = 0.0

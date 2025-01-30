@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb7cd01xc86ms"]
+
+[ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_sbvuq"]
+[ext_resource type="Script" path="res://scripts/weapons/crossbow.gd" id="2_yvpg8"]
+[ext_resource type="AudioStream" uid="uid://b6w7utb2561ag" path="res://assets/sounds/crossbow.wav" id="3_n4545"]
+[ext_resource type="Texture2D" uid="uid://cfmjccn5scywh" path="res://assets/sprites/weapons/crossbow.png" id="4_sw50y"]
+
+[node name="Crossbow" instance=ExtResource("1_sbvuq")]
+script = ExtResource("2_yvpg8")
+weapon_range = 3
+weapon_sound = ExtResource("3_n4545")
+sprite_name = "crossbow"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_sw50y")

@@ -48,4 +48,5 @@ func attack_entities_in_line(center_cell_id: Vector2i, axis_vector: Vector2i):
 			is_successful = true
 	
 	if is_successful:
+		current_cooldown = max_cooldown + 1
 		end_turn()

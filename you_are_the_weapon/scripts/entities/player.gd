@@ -77,13 +77,16 @@ func on_weapon_mouse_down(weapon: Weapon):
 	else:
 		current_state = States.MOVEMENT
 	
-func select(new_weapon) -> bool:
+func select(new_weapon: Weapon) -> bool:
 	for node in inventory_container.get_children():
 		node.deselect()
 	
 	if new_weapon == selected_weapon:
 		selected_weapon = null
 		new_weapon.deselect()
+		return false
+	
+	if new_weapon.current_cooldown > 0:
 		return false
 	
 	selected_weapon = new_weapon
@@ -96,6 +99,10 @@ func try_add_weapon(weapon: Weapon):
 		inventory_container.remove_child(inventory_container.get_child(0))
 		
 	inventory_container.add_child(weapon)
+
+func update_weapon_cooldowns():
+	for weapon: Weapon in inventory_container.get_children():
+		weapon.current_cooldown -= 1
 
 func destroy():
 	return

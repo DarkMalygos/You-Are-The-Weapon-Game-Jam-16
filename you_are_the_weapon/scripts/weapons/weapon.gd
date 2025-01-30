@@ -7,10 +7,16 @@ signal weapon_mouse_down(weapon: Weapon)
 @export var damage: int = 1
 @export var weapon_sound: AudioStreamWAV
 @export var sprite_name: String = "sword"
+@export var max_cooldown: int = 1
 
 @onready var ground_layer: GroundLayer = get_node("/root/Game/TileMap/GroundLayer")
 @onready var valid_tile_hint_layer: TileMapLayer = get_node("/root/Game/TileMap/ValidTileHintLayer")
 @onready var player: Player = get_node("../../../../..")
+@onready var current_cooldown: int = 0:
+	set(value):
+		var cooldown_value: int = max(0, value)
+		current_cooldown = cooldown_value
+		$Label.text = str(cooldown_value)
 
 var valid_cell_ids: Array[Vector2i] = []
 
@@ -45,6 +51,7 @@ func activate(target_cell_id: Vector2i):
 	if !entity:
 		return
 		
+	current_cooldown = max_cooldown + 1
 	entity.current_health -= damage
 	end_turn()
 

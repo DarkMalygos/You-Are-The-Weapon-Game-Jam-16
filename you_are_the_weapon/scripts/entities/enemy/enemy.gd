@@ -5,6 +5,7 @@ class_name Enemy
 @export var damage: int = 1
 @export var attack_range: int = 1
 @export var attack_sound: AudioStreamWAV
+@export var warning_range: int = 4
 
 # For later, It's not implemented yet
 @onready var left_bound = Vector2i(-4, 4)
@@ -49,7 +50,7 @@ func activate() -> bool:
 	return true
 
 func move(id_path: Array[Vector2i]):
-	if id_path.size() < 4:
+	if id_path.size() < warning_range:
 		$RayCast2D.target_position = player.target_position - target_position
 		$RayCast2D.force_raycast_update()
 		var collider = $RayCast2D.get_collider()
@@ -57,11 +58,11 @@ func move(id_path: Array[Vector2i]):
 			current_state = States.COMBAT
 			$Sprite2D.visible = false
 	
-	if id_path.size() == 4:
+	if id_path.size() == warning_range:
 		current_state = States.WARNING
 		$Sprite2D.visible = true
 		
-	if id_path.size() > 4:
+	if id_path.size() > warning_range:
 		current_state == States.WANDER
 		$Sprite2D.visible = false
 	

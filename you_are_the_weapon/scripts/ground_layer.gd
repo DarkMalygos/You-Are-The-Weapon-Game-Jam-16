@@ -2,6 +2,7 @@ extends TileMapLayer
 class_name GroundLayer
 
 @onready var cell_size: Vector2i = tile_set.tile_size
+@onready var player: Player = $"../../Player"
 
 var astar_grid = AStarGrid2D.new()
 var entities: Array[Entity] = []
@@ -79,6 +80,22 @@ func get_cell_ids_diagonal(center_cell_id: Vector2i, weapon_range: int) -> Array
 			
 	return cell_ids_in_range
 
+func get_cell_ids_line(center_cell_id: Vector2i, weapon_range: int) -> Array[Vector2i]:
+	var cell_ids_in_range: Array[Vector2i]
+	var current_cell_id: Vector2i
+	var axis_vector: Vector2i = Vector2i(1, 0)
+	
+	for i in range(2):
+		for axis in range(-weapon_range, weapon_range + 1):
+			current_cell_id = Vector2i(center_cell_id.x + axis * axis_vector.x, center_cell_id.y + axis * axis_vector.y)
+			
+			if is_cell_valid(current_cell_id, center_cell_id):
+				cell_ids_in_range.append(current_cell_id)
+				
+		axis_vector = Vector2i(0, 1)
+				
+	return cell_ids_in_range
+
 func is_cell_valid(cell_id: Vector2i, center_cell_id: Vector2i) -> bool:		
 	if !get_cell_tile_data(cell_id) || center_cell_id == cell_id:
 		return false
@@ -89,6 +106,8 @@ func is_cell_valid(cell_id: Vector2i, center_cell_id: Vector2i) -> bool:
 	return true
 
 func move_enemies():
+	player.update_weapon_cooldowns()
+	
 	for entity in entities:
 		if entity is Enemy:
 			if !entity.activate():
