@@ -11,6 +11,7 @@ polygon = PackedVector2Array(1, -29, -3, -29, -7, -26, -9, -23, -8, -18, -4, -14
 script = ExtResource("2_pp0io")
 damage = 3
 attack_sound = ExtResource("3_2pcdv")
+warning_range = 4
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="5"]
 occluder = SubResource("OccluderPolygon2D_1pcu2")
