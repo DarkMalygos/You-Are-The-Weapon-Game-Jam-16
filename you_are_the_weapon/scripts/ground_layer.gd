@@ -3,6 +3,7 @@ class_name GroundLayer
 
 @onready var cell_size: Vector2i = tile_set.tile_size
 @onready var player: Player = $"../../Player"
+@onready var obstacle_layer: TileMapLayer = $"../ObstacleLayer"
 
 var astar_grid = AStarGrid2D.new()
 var entities: Array[Entity] = []
@@ -26,16 +27,27 @@ func initialize_astar_grid():
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.update()
 	
+	var tile_position: Vector2i
+	var tile_data: TileData
+	var obstacle_tile_data: TileData
+	
 	for x in get_used_rect().size.x:
 		for y in get_used_rect().size.y:
-			var tile_position = Vector2i(
+			tile_position = Vector2i(
 				x + get_used_rect().position.x,
 				y + get_used_rect().position.y
 				)
 				
-			var tile_data = get_cell_tile_data(tile_position)
+			tile_data = get_cell_tile_data(tile_position)
+			
 			if !tile_data || tile_data.get_collision_polygons_count(0) > 0:
 				astar_grid.set_point_solid(tile_position)
+			
+			obstacle_tile_data = obstacle_layer.get_cell_tile_data(tile_position)
+			
+			if obstacle_tile_data:
+				if obstacle_tile_data.get_collision_polygons_count(0) > 0:
+					astar_grid.set_point_solid(tile_position)
 		
 func create_boundary_tile(cell: Vector2i):
 		if not get_cell_tile_data(cell):
