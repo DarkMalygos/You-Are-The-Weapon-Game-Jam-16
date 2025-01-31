@@ -34,7 +34,7 @@ position = Vector2(-96, 352)
 warning_range = 5
 
 [node name="Boss" parent="." instance=ExtResource("5_o435l")]
-position = Vector2(-288, -288)
+position = Vector2(1187, -4)
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 volume_db = -2.0
