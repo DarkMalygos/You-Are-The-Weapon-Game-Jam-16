@@ -3,5 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ci5o1r8jq6yqr" path="res://scenes/weapons/weapon.tscn" id="1_palkn"]
 
 [node name="Sword" instance=ExtResource("1_palkn")]
+offset_right = 64.0
+offset_bottom = 64.0
 damage = 3
 sprite_name = "sword"
