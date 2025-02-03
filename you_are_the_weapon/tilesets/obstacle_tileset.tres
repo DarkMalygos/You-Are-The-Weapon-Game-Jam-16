@@ -1,8 +1,8 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://d4lxamoh6shlt"]
 
-[ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/obstacle_tiles/tree_dark_big.png" id="1_qq4ne"]
+[ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/obstacle_tiles/tree_dark_big.png" id="1_f3fj5"]
 [ext_resource type="Texture2D" uid="uid://j5x60ubqa725" path="res://assets/sprites/tilesets/stone.png" id="2_0obn6"]
-[ext_resource type="Texture2D" uid="uid://dsiibana65tiq" path="res://assets/sprites/tilesets/obstacle_tiles/bush.png" id="3_xe6ch"]
+[ext_resource type="Texture2D" uid="uid://dsiibana65tiq" path="res://assets/sprites/tilesets/obstacle_tiles/bush.png" id="3_agfjg"]
 [ext_resource type="Texture2D" uid="uid://yopqxshyx7e2" path="res://assets/sprites/tilesets/obstacle_tiles/grass_overlay.png" id="4_n4j51"]
 [ext_resource type="Texture2D" uid="uid://vgtgs13tx2ue" path="res://assets/sprites/tilesets/obstacle_tiles/mini_tree2.png" id="5_nue38"]
 [ext_resource type="Texture2D" uid="uid://c1epwemv3ha8b" path="res://assets/sprites/tilesets/obstacle_tiles/mini_tree.png" id="6_v8vgu"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bu3lk7t5nbbfq" path="res://assets/sprites/tilesets/obstacle_tiles/bridge_extra_big.png" id="8_la7vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h0oaj"]
-texture = ExtResource("1_qq4ne")
+texture = ExtResource("1_f3fj5")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
@@ -52,7 +52,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dt2i"]
-texture = ExtResource("3_xe6ch")
+texture = ExtResource("3_agfjg")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
@@ -126,6 +126,26 @@ texture_region_size = Vector2i(64, 64)
 1:6/0 = 0
 6:6/0 = 0
 7:6/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:1/0 = 0
+0:1/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+5:6/0 = 0
+4:6/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+0:7/0 = 0
 
 [resource]
 tile_size = Vector2i(64, 64)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq8hn8macfc6s"]
+[gd_scene load_steps=6 format=3 uid="uid://ckgvbnb7mb51s"]
 
 [ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemies/enemy.tscn" id="1_idfy3"]
 [ext_resource type="Script" path="res://scripts/entities/enemy/boss.gd" id="2_jws71"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgk0pcegfd4uo"]
+
+[ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemies/enemy.tscn" id="1_epccf"]
+[ext_resource type="Texture2D" uid="uid://ccofb0f0xlujt" path="res://assets/sprites/entities/enemies/robbie_wood_animation.png" id="2_m2rdn"]
+[ext_resource type="Texture2D" uid="uid://cg3ud7muoqya8" path="res://assets/sprites/entities/enemies/robbie_wood_idle.png" id="3_noteo"]
+[ext_resource type="AudioStream" uid="uid://b6w7utb2561ag" path="res://assets/sounds/crossbow.wav" id="4_8rwne"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mb2r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m2rdn")
+}],
+"loop": true,
+"name": &"animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_noteo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="RobbieWood" instance=ExtResource("1_epccf")]
+attack_sound = ExtResource("4_8rwne")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_mb2r2")
+animation = &"idle"
+
+[node name="SoundsPlayer" parent="." index="5"]
+stream = ExtResource("4_8rwne")

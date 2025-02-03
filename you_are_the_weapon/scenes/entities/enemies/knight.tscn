@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://5mrimvsl4fwg"]
+
+[ext_resource type="PackedScene" uid="uid://ft3jd14jxr72" path="res://scenes/entities/enemies/enemy.tscn" id="1_rifl3"]
+[ext_resource type="Texture2D" uid="uid://damppa2g8r7sm" path="res://assets/sprites/entities/enemies/knight_chase.png" id="2_3tai5"]
+[ext_resource type="AudioStream" uid="uid://f2vyn1vw7ok5" path="res://assets/sounds/lance.wav" id="2_u2yad"]
+[ext_resource type="Texture2D" uid="uid://b506b45n25m3b" path="res://assets/sprites/entities/enemies/knight_idle.png" id="3_aqosg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kvj6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3tai5")
+}],
+"loop": true,
+"name": &"chase",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_aqosg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Knight" instance=ExtResource("1_rifl3")]
+attack_sound = ExtResource("2_u2yad")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_kvj6v")
+animation = &"idle"
+
+[node name="SoundsPlayer" parent="." index="5"]
+stream = ExtResource("2_u2yad")

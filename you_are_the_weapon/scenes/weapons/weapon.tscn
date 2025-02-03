@@ -4,23 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://crltta6lpkrf8" path="res://assets/sprites/weapons/sword.png" id="2_22ji6"]
 
 [node name="Weapon" type="Control"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 75.0
+offset_bottom = 75.0
+size_flags_vertical = 4
 script = ExtResource("1_p77u0")
 sprite_name = ""
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 75.0
+offset_bottom = 75.0
 mouse_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(50, 50)
-scale = Vector2(1.5625, 1.5625)
+position = Vector2(37.5, 37.5)
+scale = Vector2(1.17188, 1.17188)
 texture = ExtResource("2_22ji6")
 
 [node name="Label" type="Label" parent="."]

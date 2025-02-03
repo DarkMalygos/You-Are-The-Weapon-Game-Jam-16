@@ -22,13 +22,14 @@ var valid_cell_ids: Array[Vector2i] = []
 
 func _ready() -> void:
 	weapon_mouse_down.connect(player.on_weapon_mouse_down)
+	$ColorRect.color = Color.SADDLE_BROWN
 
 func select(position: Vector2i):
-	$ColorRect.color = Color.RED
+	$ColorRect.color = Color.DARK_RED
 	show_valid_cells(position)
 
 func deselect():
-	$ColorRect.color = Color.WHITE
+	$ColorRect.color = Color.SADDLE_BROWN
 	hide_valid_cells()
 
 func show_valid_cells(cell_id: Vector2i):
