@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://d4lxamoh6shlt"]
 
-[ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/tree_dark_128.png" id="1_qq4ne"]
+[ext_resource type="Texture2D" uid="uid://bje63hxpjjlo3" path="res://assets/sprites/tilesets/obstacle_tiles/tree_dark_big.png" id="1_qq4ne"]
 [ext_resource type="Texture2D" uid="uid://j5x60ubqa725" path="res://assets/sprites/tilesets/stone.png" id="2_0obn6"]
-[ext_resource type="Texture2D" uid="uid://dsiibana65tiq" path="res://assets/sprites/tilesets/grass_dirt/bokor.png" id="3_yurnf"]
-[ext_resource type="Texture2D" uid="uid://yopqxshyx7e2" path="res://assets/sprites/tilesets/grass_dirt/grass_overlay.png" id="4_7pqb7"]
-[ext_resource type="Texture2D" uid="uid://vgtgs13tx2ue" path="res://assets/sprites/tilesets/grass_dirt/mini_tree2.png" id="5_vq14t"]
-[ext_resource type="Texture2D" uid="uid://c1epwemv3ha8b" path="res://assets/sprites/tilesets/grass_dirt/mini_tree.png" id="6_csujn"]
-[ext_resource type="Texture2D" uid="uid://c3srabbwbykry" path="res://assets/sprites/tilesets/grass_dirt/tree.png" id="7_21q4h"]
-[ext_resource type="Texture2D" uid="uid://bu3lk7t5nbbfq" path="res://assets/sprites/tilesets/bridge_extra_big.png" id="8_cimuk"]
+[ext_resource type="Texture2D" uid="uid://dsiibana65tiq" path="res://assets/sprites/tilesets/obstacle_tiles/bush.png" id="3_xe6ch"]
+[ext_resource type="Texture2D" uid="uid://yopqxshyx7e2" path="res://assets/sprites/tilesets/obstacle_tiles/grass_overlay.png" id="4_n4j51"]
+[ext_resource type="Texture2D" uid="uid://vgtgs13tx2ue" path="res://assets/sprites/tilesets/obstacle_tiles/mini_tree2.png" id="5_nue38"]
+[ext_resource type="Texture2D" uid="uid://c1epwemv3ha8b" path="res://assets/sprites/tilesets/obstacle_tiles/mini_tree.png" id="6_v8vgu"]
+[ext_resource type="Texture2D" uid="uid://c3srabbwbykry" path="res://assets/sprites/tilesets/obstacle_tiles/tree.png" id="7_2fka0"]
+[ext_resource type="Texture2D" uid="uid://bu3lk7t5nbbfq" path="res://assets/sprites/tilesets/obstacle_tiles/bridge_extra_big.png" id="8_la7vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h0oaj"]
 texture = ExtResource("1_qq4ne")
@@ -52,27 +52,27 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, -32, 32, 32, 32, 32, -32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8dt2i"]
-texture = ExtResource("3_yurnf")
+texture = ExtResource("3_xe6ch")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5kawq"]
-texture = ExtResource("4_7pqb7")
+texture = ExtResource("4_n4j51")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csw6r"]
-texture = ExtResource("5_vq14t")
+texture = ExtResource("5_nue38")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eacoh"]
-texture = ExtResource("6_csujn")
+texture = ExtResource("6_v8vgu")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r02tr"]
-texture = ExtResource("7_21q4h")
+texture = ExtResource("7_2fka0")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -80,7 +80,7 @@ texture_region_size = Vector2i(64, 64)
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqvw8"]
-texture = ExtResource("8_cimuk")
+texture = ExtResource("8_la7vs")
 texture_region_size = Vector2i(64, 64)
 3:0/0 = 0
 4:0/0 = 0

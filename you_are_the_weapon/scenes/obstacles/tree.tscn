@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bivii04b8kku"]
 
-[ext_resource type="Texture2D" uid="uid://dna17csokrdpa" path="res://assets/sprites/monkey_tree.png" id="1_uhgld"]
+[ext_resource type="Texture2D" uid="uid://dna17csokrdpa" path="res://assets/sprites/tilesets/obstacle_tiles/monkey_tree.png" id="1_uhgld"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8prl8"]
 blend_mode = 1

@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://c78gvjnor8kr4"]
 
-[ext_resource type="Texture2D" uid="uid://ck0b7ji1bldbo" path="res://assets/sprites/entities/enemies/woodcutter.png" id="1_mvbkc"]
+[ext_resource type="Texture2D" uid="uid://ck0b7ji1bldbo" path="res://assets/sprites/entities/enemies/woodcutter_animation.png" id="1_mvbkc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pna7r"]
 atlas = ExtResource("1_mvbkc")
