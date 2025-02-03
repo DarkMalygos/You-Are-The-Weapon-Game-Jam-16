@@ -17,20 +17,12 @@ position = Vector2(0, -4)
 
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
 
-[node name="SoldierMorningStar" parent="." instance=ExtResource("4_c8knm")]
-position = Vector2(224, -288)
-warning_range = 5
-
-[node name="WoodCutter" parent="." instance=ExtResource("4_rlrpj")]
-position = Vector2(352, 32)
-warning_range = 5
-
 [node name="SoldierMorningStar2" parent="." instance=ExtResource("4_c8knm")]
-position = Vector2(288, 224)
+position = Vector2(288, -224)
 warning_range = 5
 
 [node name="WoodCutter2" parent="." instance=ExtResource("4_rlrpj")]
-position = Vector2(-96, 352)
+position = Vector2(-224, 288)
 warning_range = 5
 
 [node name="Boss" parent="." instance=ExtResource("5_o435l")]
