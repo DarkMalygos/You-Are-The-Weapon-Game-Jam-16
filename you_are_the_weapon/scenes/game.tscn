@@ -20,7 +20,7 @@ position = Vector2(0, -4)
 [node name="Player" parent="." instance=ExtResource("2_fhnwy")]
 
 [node name="SoldierMorningStar2" parent="." instance=ExtResource("4_c8knm")]
-position = Vector2(288, -224)
+position = Vector2(224, -224)
 warning_range = 5
 
 [node name="WoodCutter" parent="." instance=ExtResource("4_rlrpj")]
